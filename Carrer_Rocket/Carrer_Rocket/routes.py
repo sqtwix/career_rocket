@@ -3,6 +3,7 @@ Routes and views for the bottle application.
 """
 
 from bottle import route, view
+import json
 from datetime import datetime
 
 @route('/')
@@ -33,3 +34,11 @@ def about():
         message='Your application description page.',
         year=datetime.now().year
     )
+
+@route('/analytics')
+@view("analytics")
+def analytics():
+
+    # Загрузка данных из json
+    with open('data/categories.json', 'r', encoding='utf-8') as f:
+        categories_data = json.load(f)
