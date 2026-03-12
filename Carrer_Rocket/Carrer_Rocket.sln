@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36616.10 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Carrer_Rocket", "Carrer_Rocket\Carrer_Rocket.pyproj", "{9C9897E7-34BF-4CCE-89E3-E82C1B455106}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C9897E7-34BF-4CCE-89E3-E82C1B455106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C9897E7-34BF-4CCE-89E3-E82C1B455106}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C9897E7-34BF-4CCE-89E3-E82C1B455106}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C9897E7-34BF-4CCE-89E3-E82C1B455106}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4D0BAAB9-DDC6-430A-AFF1-766232E339CE}
+	EndGlobalSection
+EndGlobal
