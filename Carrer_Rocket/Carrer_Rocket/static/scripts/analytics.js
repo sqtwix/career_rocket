@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Создание всех графиков и заполнение иных данных
     createPieChart(window.categoriesData);
+    createBarChart(window.salariesData)
 });
 
 // Метод создания круговой диаграммы 
@@ -46,6 +47,60 @@ function createPieChart(data) {
                             const percent = ((ctx.raw / total) * 100).toFixed(1);
                             return `${ctx.label}: ${ctx.raw} вакансий (${percent}%)`;
                         }
+                    }
+                }
+            }
+        }
+    });
+}
+
+// Метод для создания столбцатой диаграммы
+function createBarChart(data) {
+    const ctx = document.getElementById('barChart')?.getContext('2d');
+    if (!ctx) return;
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: data.salaries.map(s => s.category),
+            datasets: [
+                {
+                    label: 'Мин',
+                    data: data.salaries.map(s => s.min),
+                    backgroundColor: '#e3f2fd',
+                    borderColor: '#0d47a1',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Средняя',
+                    data: data.salaries.map(s => s.avg),
+                    backgroundColor: '#4361ee',
+                    borderColor: '#3f37c9',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Макс',
+                    data: data.salaries.map(s => s.max),
+                    backgroundColor: '#fff3e0',
+                    borderColor: '#e65100',
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: (ctx) => `${ctx.dataset.label}: ${ctx.raw.toLocaleString()} ₽`
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: (v) => v.toLocaleString() + ' ₽'
                     }
                 }
             }
