@@ -1,5 +1,4 @@
-﻿% rebase('layout.tpl', title='Аналитика рынка IT', year=year)
-
+﻿<!-- Подключение стилей -->
 <link rel="stylesheet" type="text/css" href="/static/content/analytics.css" />
 
 <!-- Шапка страницы -->
