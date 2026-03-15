@@ -1,4 +1,4 @@
-"""
+п»ї"""
 Routes and views for the bottle application.
 """
 
@@ -39,6 +39,17 @@ def about():
 @view("analytics")
 def analytics():
 
-    # Загрузка данных из json
-    with open('data/categories.json', 'r', encoding='utf-8') as f:
+    # Р—Р°РіСЂСѓР·РєР° РґР°РЅРЅС‹С… РёР· json
+    with open('data/categories.json', 'r', encoding='cp1251') as f:
         categories_data = json.load(f)
+
+    with open('data/salaries.json', 'r', encoding='cp1251') as f:
+        salaries_data = json.load(f)
+
+    return dict(
+        title = 'Analytic',
+        message='РђРЅР°Р»РёС‚РєР° СЂС‹РЅРєР°.',
+        categories=json.dumps(categories_data, ensure_ascii=False),
+        salaries=json.dumps(salaries_data, ensure_ascii=False),
+        year=2026
+        )
