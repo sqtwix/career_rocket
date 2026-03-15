@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Создание всех графиков и заполнение иных данных
     createPieChart(window.categoriesData);
-    createBarChart(window.salariesData)
+    createBarChart(window.salariesData);
+    populateCategoryList(window.salariesData);
 });
 
 // Метод создания круговой диаграммы 
@@ -54,10 +55,40 @@ function createPieChart(data) {
     });
 }
 
+// Метод отображения информации по каждой категории
+function populateCategoryList(data) {
+    const list = document.getElementById('categoryList');
+    if (!list) {
+        console.error('Элемент categoryList не найден');
+        return;
+    }
+
+    list.innerHTML = data.salaries.map(item => `
+        <div class="category-item">
+            <div class="category-name">${item.category}</div>
+            <div class="category-stats">
+                <span><i class="fas fa-users"></i> ${item.candidates.toLocaleString()} соиск.</span>
+                <span><i class="fas fa-building"></i> ${item.employers.toLocaleString()} работ.</span>
+            </div>
+            <div class="salary-range">
+                <span class="salary-badge badge-min">${item.min.toLocaleString()} ₽</span>
+                <span class="salary-badge badge-avg">${item.avg.toLocaleString()} ₽</span>
+                <span class="salary-badge badge-max">${item.max.toLocaleString()} ₽</span>
+            </div>
+            <div class="salary-bar">
+                <div class="salary-fill" style="width: ${(item.min / item.max) * 100}%"></div>
+            </div>
+        </div>
+    `).join('');
+
+    console.log('Cписок категорий заполнен');
+}
+
 // Метод для создания столбцатой диаграммы
 function createBarChart(data) {
     const ctx = document.getElementById('barChart')?.getContext('2d');
     if (!ctx) return;
+
 
     new Chart(ctx, {
         type: 'bar',
@@ -107,4 +138,6 @@ function createBarChart(data) {
         }
     });
 }
+
+
 
