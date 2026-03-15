@@ -1,5 +1,9 @@
-﻿<!-- Шапка страницы -->
-<div class="page-header text-center">
+﻿% rebase('layout.tpl', title='Аналитика рынка IT', year=year)
+
+<link rel="stylesheet" type="text/css" href="/static/content/analytics.css" />
+
+<!-- Шапка страницы -->
+<div class="page-header">
     <div class="container">
         <h1>📊 Аналитика рынка IT</h1>
         <p>Актуальные данные за {{ year }} год • Более 4000 вакансий</p>

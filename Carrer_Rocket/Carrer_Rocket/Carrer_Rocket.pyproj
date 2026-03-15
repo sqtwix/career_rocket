@@ -44,6 +44,7 @@
     <Content Include="data\categories.json" />
     <Content Include="data\salaries.json" />
     <Content Include="requirements.txt" />
+    <Content Include="static\content\analytics.css" />
     <Content Include="static\content\bootstrap.css" />
     <Content Include="static\content\bootstrap.min.css" />
     <Content Include="static\content\site.css" />
