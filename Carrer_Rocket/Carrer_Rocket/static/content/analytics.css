@@ -37,3 +37,502 @@
         padding-bottom: 0.5rem;
         border-bottom: 2px solid var(--primary);
     }
+Принципы менеджмента качества ГОСТ Р ИСО 9000
+Идеи веб проектов на Bottle с AI
+Number Picker в Material Design
+Data Security Questions Exercise
+Триггер проверки длины имени
+Объяснение курсора MySQL как итератора
+Пояснение адресации команд
+Подсказка по решению задачи summaryRanges
+Преобразование двумерного массива в список Java
+Тень и градиент для кнопок Android
+Анализ логики умножения строк
+Multiplication Code Logic Hint
+Объяснение работы триггера суммы в MySQL
+Оценка времени создания аналога Яндекс Телемоста
+Free DietaGram API alternatives
+Создание сайта для подсчета калорий по фото еды
+Решение переполнения long в умножении строк
+Исправление типов в коде умножения
+Git log вывод хэша сообщений
+Исправление ошибки вылета приложения Android
+Git commit flags examples
+Java array declaration error fix
+Правовые риски показа фильмов в приложении
+Заполнение HashMap из таблицы
+Объяснение программы ассемблера в debug
+Российские аналоги Confluence
+Git push rejected fix
+Файлы игнорируемые Git в Visual Studio
+Настройка интерфейса входа
+обыщи весь интрнет и найди промо
+Подсчет команд INT в дампе памяти
+Безопасное использование голоса с нейросетями
+MySQL хранимая процедура обновления артикула
+Java библиотеки для парсинга математических выражений
+MySQL процедуры для базы данных
+Исправление синтаксиса процедуры find_sum
+Исправление ошибки SQL процедуры
+Android Studio XML view tabs location
+Git commit without add option
+Хранение миграций EF в репозитории
+Android OS release year
+OAuth token in Yandex CLI explained
+Национальный орган по стандартизации в ФЗ 162
+Yandex GPT для нескольких персонажей
+LimitedCounter class fix example
+Заполнение ячеек ассемблер номер журнала
+Как импортировать виртуальную машину в VirtualBox
+Обработка ошибок факториала через исключения
+Статья 16 184 ФЗ о стандартах
+Сопроводительное письмо для стажировки C#
+Исправление запроса MySQL для статистики
+Создание списка букв русского алфавита в Java
+Добавление элементов в список в Java
+Customizing Corner Radius in Visual Studio 2022
+Customizing Visual Studio Appearance Guide
+Проблема с запросом в MySQL: вывод данных
+Ошибка импорта из-за внешнего ключа
+Размещение проекта на удаленном сервере через Windows
+Использование ErrorOr в ASP.NET проектах
+Создание дампа структуры БД в MySQL Workbench
+Резюме для стажировки Java Backend
+я пишу серверную часть одной при
+Проектирование БД для медицинского центра
+Создание разных рамок для разделов в Word
+Подключение JwtSecurityTokenHandler в C#
+Луковичная архитектура в C#: основы и примеры
+Как вставить видео с запуском по клику
+Метод для проверки существования пользователя
+Adding Extra Term to Crime Statistics
+SQL-запросы для работы с базой данных
+Мобильное приложение для совместного просмотра кино
+Примеры архитектур файл-сервер и трехслойная
+Дистервег и принципы образования в истории
+Функции MySQL для работы с датами
+Настройка Visual Studio для Web API
+Настройка MaterialCalendarView в Android
+Получение app_id и secret в VK Developers
+Перевод данных в 3НФ: оценка работы
+Добавление зависимости для NavController в Compose
+Проверка Duration больше 0 в DTO
+Ошибка сборки Docker из-за строковой константы
+Методы итерации списка с двух концов
+Generics в Java: параметризация типов
+Исправление синтаксических ошибок в коде
+Использование Claude для вайбкодинга на ПК
+Установка Claude Code для Windows
+Исправление синтаксических ошибок в коде
+Инструкция по импорту OSHI в IntelliJ IDEA
+Примеры системных свойств в Java
+Исправление синтаксиса и TreeSet в Java
+Помощь в подготовке к экзамену по C#
+Различия между Task View и просмотром задач
+Восстановление пароля для root пользователя MySQL
+NullReferenceException в C#: исправление ошибки
+Цветовая палитра и нейросети для логотипа
+Анализ и исправление кода матриц Java
+Проверка корректности размера матрицы
+Ошибка привязки данных в XAML
+Обучение работе с классами в Java
+Java Calculator Code Fixes and Improvements
+Идеи веб проектов на Bottle с AI
+🎯 Нашел несколько ошибок!
+Ошибка 1: В JS опечатка
+javascript
+
+// Было (опечатка):
+consolw.log("ERROR. Данные из json файлов не загружены");
+
+// Должно быть:
+console.log("ERROR. Данные из json файлов не загружены");
+
+Ошибка 2: Не закрыта функция
+javascript
+
+// Было (не хватает закрывающей скобки):
+document.addEventListener('DOMContentLoaded', function () {
+    ...
+    createPieChart(window.categoriesData);
+} // ← Здесь не хватает ) и );
+
+// Должно быть:
+document.addEventListener('DOMContentLoaded', function () {
+    ...
+    createPieChart(window.categoriesData);
+}); // ← Вот так правильно
+
+Ошибка 3: Не вызываются остальные функции
+
+Ты вызываешь только createPieChart, а нужно вызвать всё.
+✅ Исправленный JS-код:
+javascript
+
+// Логика страницы analytic.js
+
+// Ждем загрузки DOM
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('Analytics page loaded');
+
+    // Проверка загрузки данных
+    if (!window.categoriesData || !window.salariesData) {
+        console.error("ERROR. Данные из json файлов не загружены");
+        return;
+    }
+    
+    console.log('✅ Данные загружены:', window.categoriesData);
+    console.log('✅ Данные о зарплатах:', window.salariesData);
+
+    // Создание всех графиков и заполнение данных
+    createPieChart(window.categoriesData);
+    createBarChart(window.salariesData);
+    populateCategoryList(window.salariesData);
+});
+
+// Метод создания круговой диаграммы
+function createPieChart(data) {
+    const ctx = document.getElementById('pieChart')?.getContext('2d');
+    if(!ctx)
+
+{
+    console .error('Canvas pieChart не найден');
+    return;
+}
+
+const colors = ['#4361ee', '#3f37c9', '#4cc9f0', '#f72585', '#f8961e',
+'#90be6d', '#577590', '#7209b7', '#b5838d', '#2d9cdb'];
+
+new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: data.categories.map(c => c.name),
+            datasets: [{
+                data: data.categories.map(c => c.count),
+                backgroundColor: colors.slice(0, data.categories.length),
+                borderWidth: 2,
+                borderColor: 'white'
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'right' },
+                tooltip: {
+                    callbacks: {
+                        label: (ctx) => {
+                            const total = ctx.dataset.data.reduce((a, b) => a + b, 0);
+                            const percent = ((ctx.raw / total) * 100).toFixed(1);
+                            return `${ctx.label}: ${ctx.raw} вакансий (${percent}%)`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+console.log('✅ Круговая диаграмма создана');
+}
+
+// Метод создания столбцовой диаграммы
+function createBarChart(data) {
+    const ctx = document.getElementById('barChart')?.getContext('2d');
+    if(!ctx)
+
+{
+    console .error('Canvas barChart не найден');
+    return;
+}
+
+new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: data.salaries.map(s => s.category),
+            datasets: [
+                {
+                    label: 'Минимальная',
+                    data: data.salaries.map(s => s.min),
+                    backgroundColor: '#e3f2fd',
+                    borderColor: '#0d47a1',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Средняя',
+                    data: data.salaries.map(s => s.avg),
+                    backgroundColor: '#4361ee',
+                    borderColor: '#3f37c9',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Максимальная',
+                    data: data.salaries.map(s => s.max),
+                    backgroundColor: '#fff3e0',
+                    borderColor: '#e65100',
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'top' },
+                tooltip: {
+                    callbacks: {
+                        label: (ctx) => `${ctx.dataset.label}: ${ctx.raw.toLocaleString()} ₽`
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: (v) => v.toLocaleString() + ' ₽'
+                    }
+                }
+            }
+        }
+    });
+console.log('✅ Столбцовая диаграмма создана');
+}
+
+// Метод заполнения списка категорий
+function populateCategoryList(data) {
+    const list = document.getElementById('categoryList');
+    if(!list)
+
+{
+    console .error('Элемент categoryList не найден');
+    return;
+}
+
+list.innerHTML = data.salaries.map(item => ` <div class="category-item"> <div class="category-name">${item.category}</div> <div class="category-stats"> <span><i class="fas fa-users"></i> ${item.candidates.toLocaleString()} соиск.</span> <span><i class="fas fa-building"></i> ${item.employers.toLocaleString()} работ.</span> </div> <div class="salary-range"> <span class="salary-badge badge-min">${item.min.toLocaleString()} ₽</span> <span class="salary-badge badge-avg">${item.avg.toLocaleString()} ₽</span> <span class="salary-badge badge-max">${item.max.toLocaleString()} ₽</span> </div> <div class="salary-bar"> <div class="salary-fill" style="width: ${(item.min / item.max) * 100}%"></div> </div> </div> `).join('');
+
+console.log('✅ Список категорий заполнен');
+}
+
+📝 В analytics.tpl добавь в самый низ:
+html
+<!-- Chart.js обязательно ДО твоего скрипта -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js" > </script >
+<!-- Твои данные из Python -->
+<script >
+window.categoriesData = {
+
+{
+    !categories
+}
+
+}
+
+;
+window.salariesData = {
+
+{
+    !salaries
+}
+
+}
+
+;
+console.log('📦 Данные из Python:', window.categoriesData);
+</script >
+<!-- Твой JS-файл -->
+<script src="/static/scripts/analytics.js" > </script >
+
+🚀 Порядок подключения в analytics.tpl (весь файл):
+html
+
+% rebase('layout.tpl', title='Аналитика рынка IT', year=year)
+<!-- Подключение стилей -->
+<link rel="stylesheet" type="text/css" href="/static/content/analytics.css" / >
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" >
+<!-- Шапка страницы -->
+<div class="page-header" >
+<div class="container" >
+<h1 > 📊 Аналитика рынка IT</h1 >
+<p > Актуальные данные за {
+
+{
+    year
+}
+
+}
+
+год • Более 4000 вакансий</p >
+</div >
+</div >
+<!-- Три окна (твой HTML код) -->
+... (оставляешь как есть)
+<!-- В САМОМ КОНЦЕ подключаем скрипты -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js" > </script >
+<script >
+window.categoriesData = {
+
+{
+    !categories
+}
+
+}
+
+;
+window.salariesData = {
+
+{
+    !salaries
+}
+
+}
+
+;
+console.log('📦 Данные загружены в window');
+</script >
+<script src="/static/scripts/analytics.js" > </script >
+
+🔍 Что проверить в консоли браузера (F12):
+
+Нет ли красных ошибок?
+
+Видишь ли сообщения:
+
+Analytics page loaded
+
+✅ Данные загружены: ...
+
+✅ Круговая диаграмма создана
+
+✅ Столбцовая диаграмма создана
+
+✅ Список категорий заполнен
+
+Если графики всё равно не появляются - напиши, что показывает консоль!
+сейчас график слишком болльшой, как контролировать его размер - используя стили или js?
+<!-- Подключение стилей -->
+<link rel="stylesheet" type="text/css" href="/static/content/analytics.css" / >
+<!-- Шапка страницы -->
+<div class="page-header" >
+<div class="container" >
+<h1 > 📊 Аналитика рынка IT</h1 >
+<p > Актуальные данные за {
+
+{
+    year
+}
+
+}
+
+год • Более 4000 вакансий</p >
+</div >
+</div >
+<!-- Три окна для отображение самой статистики -->
+<div class="container" >
+<div class="row" >
+<!-- Окно круговой диаграммы-- >
+<div class="col-md-6" >
+<div class="window window-pie" >
+<h2 > Распределение вакансий</h2 >
+<canvas id="pieChart" > </canvas >
+</div >
+</div >
+<!-- Окно cправки по вакансиям -->
+<div class="col-md-6" >
+<div class="window window-info" >
+<h2 > Детали по категориям</h2 >
+<div id="categoryList" > </div >
+</div >
+</div >
+</div >
+
+<div class="row" >
+<!-- Окно со столбцовой диаграммой -->
+<div class="col-md-12" >
+<div class="window window-bar" >
+<h2 > Средние зарплаты</h2 >
+<canvas id="barChart" > </canvas >
+</div >
+</div >
+</div >
+</div >
+<!-- Подключение скриптов -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js" > </script >
+<script >
+window.categoriesData = {
+
+{
+    !categories
+}
+
+}
+
+;
+window.salariesData = {
+
+{
+    !salaries
+}
+
+}
+
+;
+console.log('Данные загружены в window');
+</script >
+<script src="/static/scripts/analytics.js" > </script >
+/* Основные цвета */
+:root {
+    --primary: #4361ee;
+    --secondary: #3f37c9;
+    --success: #4cc9f0;
+    --warning: #f72585;
+    --dark: #1e1e2f;
+    --light: #f8f9fa;
+    --gray: #6c757d;
+}
+
+.page-header {
+    background: linear-gradient(135deg, var(--dark), #2b2b4f);
+    color: white;
+    font-size: 1.5rem;
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+}
+
+.window {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+    .window:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .window h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--primary);
+    }
+
+📏 Управление размером графиков - и CSS, и JS!
+
+Лучше использовать комбинированный подход:
+🎨 1. В CSS добавь эти стили (в analytics.css):
+css
+/* Контейнер для графика - контролируем размер */
+.window {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+
+/* Для круговой диаграммы можно чуть меньше */
+.window-pie canvas {
+    height: 300px !important;
+    max-height: 300px;
+}
