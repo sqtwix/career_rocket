@@ -39,3 +39,12 @@
         </div>
     </div>
 </div>
+
+<!-- Подключение скриптов -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    window.categoriesData = {{ !categories }};
+    window.salariesData = {{ !salaries }};
+    console.log('Данные загружены в window');
+</script>
+<script src="/static/scripts/analytics.js"></script>
