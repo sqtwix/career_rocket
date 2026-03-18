@@ -1,0 +1,84 @@
+{
+  "salaries": [
+    {
+      "category": "Системное программирование",
+      "min": 150000,
+      "max": 350000,
+      "avg": 220000,
+      "candidates": 1200,
+      "employers": 45
+    },
+    {
+      "category": "ML",
+      "min": 200000,
+      "max": 500000,
+      "avg": 320000,
+      "candidates": 850,
+      "employers": 62
+    },
+    {
+      "category": "Web-backend",
+      "min": 120000,
+      "max": 300000,
+      "avg": 180000,
+      "candidates": 2100,
+      "employers": 98
+    },
+    {
+      "category": "Web-frontend",
+      "min": 100000,
+      "max": 250000,
+      "avg": 160000,
+      "candidates": 1900,
+      "employers": 87
+    },
+    {
+      "category": "Android dev",
+      "min": 130000,
+      "max": 280000,
+      "avg": 190000,
+      "candidates": 760,
+      "employers": 41
+    },
+    {
+      "category": "iOS dev",
+      "min": 140000,
+      "max": 300000,
+      "avg": 200000,
+      "candidates": 680,
+      "employers": 38
+    },
+    {
+      "category": "DevOps",
+      "min": 160000,
+      "max": 400000,
+      "avg": 250000,
+      "candidates": 920,
+      "employers": 73
+    },
+    {
+      "category": "Data Science",
+      "min": 180000,
+      "max": 450000,
+      "avg": 280000,
+      "candidates": 540,
+      "employers": 49
+    },
+    {
+      "category": "Дизайнер",
+      "min": 90000,
+      "max": 220000,
+      "avg": 140000,
+      "candidates": 1500,
+      "employers": 82
+    },
+    {
+      "category": "Системный аналитик",
+      "min": 170000,
+      "max": 350000,
+      "avg": 240000,
+      "candidates": 430,
+      "employers": 36
+    }
+  ]
+}
