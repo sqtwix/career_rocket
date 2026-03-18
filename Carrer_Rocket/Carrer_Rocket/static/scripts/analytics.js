@@ -56,6 +56,7 @@ function createPieChart(data) {
 }
 
 // Метод отображения информации по каждой категории
+// Метод отображения информации по каждой категории
 function populateCategoryList(data) {
     const list = document.getElementById('categoryList');
     if (!list) {
@@ -63,25 +64,34 @@ function populateCategoryList(data) {
         return;
     }
 
-    list.innerHTML = data.salaries.map(item => `
-        <div class="category-item">
+    list.innerHTML = data.salaries.map(item => {
+        const categoryKey = item.category.toLowerCase().replace(/[^a-z]/g, '');
+        const demand = item.employers > 0 ?
+            Math.round((item.candidates / item.employers) * 10) / 10 : 0;
+
+        return `
+        <div class="category-item" data-category="${categoryKey}">
             <div class="category-name">${item.category}</div>
             <div class="category-stats">
-                <span><i class="fas fa-users"></i> ${item.candidates.toLocaleString()} соиск.</span>
+                <span><i class="fas fa-users" style="font-size: 20px;"></i> ${item.candidates.toLocaleString()} соиск.</span>
                 <span><i class="fas fa-building"></i> ${item.employers.toLocaleString()} работ.</span>
             </div>
             <div class="salary-range">
-                <span class="salary-badge badge-min">${item.min.toLocaleString()} ₽</span>
-                <span class="salary-badge badge-avg">${item.avg.toLocaleString()} ₽</span>
-                <span class="salary-badge badge-max">${item.max.toLocaleString()} ₽</span>
+                <span class="salary-badge badge-min">💰 ${item.min.toLocaleString()} ₽</span>
+                <span class="salary-badge badge-avg">📊 ${item.avg.toLocaleString()} ₽</span>
+                <span class="salary-badge badge-max">🚀 ${item.max.toLocaleString()} ₽</span>
             </div>
             <div class="salary-bar">
                 <div class="salary-fill" style="width: ${(item.min / item.max) * 100}%"></div>
             </div>
+            <div class="category-footer">
+                <span style="font-size: 20px; font-weight: bold;">📈 Спрос: ${demand} на место</span>
+                <span style="font-size: 20px;">💼 Вакансий: ${item.employers}</span>
+            </div>
         </div>
-    `).join('');
+    `}).join('');
 
-    console.log('Cписок категорий заполнен');
+    console.log('Список категорий заполнен');
 }
 
 // Метод для создания столбцатой диаграммы

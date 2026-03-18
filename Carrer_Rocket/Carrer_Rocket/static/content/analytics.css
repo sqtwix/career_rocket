@@ -1,16 +1,24 @@
-﻿/* Основные цвета */
+﻿/* Цветовая палитра */
 :root {
-    --primary: #4361ee;
-    --secondary: #3f37c9;
-    --success: #4cc9f0;
-    --warning: #f72585;
-    --dark: #1e1e2f;
-    --light: #f8f9fa;
-    --gray: #6c757d;
+    --orange: #ec8e41;
+    --light-orange: #f1c174;
+    --cream: #f6e5a7;
+    --mint: #a7f6ed;
+    --dark-blue: #031849;
+}
+
+html {
+    font-size: 18px; /* Базовый размер*/
+    background: linear-gradient(135deg, var(--dark-blue), #0a2a6e);
+}
+
+body {
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 .page-header {
-    background: linear-gradient(135deg, var(--dark), #2b2b4f);
+    background: linear-gradient(135deg, var(--dark-blue), #0a2a6e);
     color: white;
     font-size: 1.5rem;
     padding: 3rem 0;
@@ -22,38 +30,272 @@
     border-radius: 15px;
     padding: 1.5rem;
     margin-bottom: 2rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(3, 24, 73, 0.1);
     transition: transform 0.3s;
 }
 
     .window:hover {
         transform: translateY(-5px);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        box-shadow: 0 8px 25px rgba(236, 142, 65, 0.15);
     }
 
     .window h2 {
         font-size: 1.3rem;
         margin-bottom: 1.5rem;
         padding-bottom: 0.5rem;
-        border-bottom: 2px solid var(--primary);
+        border-bottom: 3px solid var(--orange);
+        color: var(--dark-blue);
     }
 
-.window-pie canvas,
-.window-bar canvas {
-    max-width: 100%;
-    height: 350px !important; /* Фиксированная высота */
-    width: 100% !important; /* Ширина подстраивается */
-    max-height: 350px;
-}
-
-/* Для круговой диаграммы можно чуть меньше */
+/* Для круговой */
 .window-pie canvas {
     height: 300px !important;
     max-height: 300px;
 }
 
-/* Для столбцовой - чуть больше */
+/* Для столбцовой */
 .window-bar canvas {
     height: 400px !important;
     max-height: 400px;
+    font-size: 1.2rem;    
+}
+
+/* Стили для списка категорий - ПОЛНОСТЬЮ ОБНОВЛЕНО */
+#categoryList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+    /* Полоса прокрутки */
+    #categoryList::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    #categoryList::-webkit-scrollbar-track {
+        background: var(--cream);
+        border-radius: 10px;
+    }
+
+    #categoryList::-webkit-scrollbar-thumb {
+        background: var(--orange);
+        border-radius: 10px;
+    }
+
+        #categoryList::-webkit-scrollbar-thumb:hover {
+            background: var(--dark-blue);
+        }
+
+.category-item {
+    background: linear-gradient(135deg, white, #fff9f0);
+    border-radius: 16px;
+    font-size: 1.2rem;
+    padding: 1.2rem;
+    border-left: 6px solid var(--orange);
+    box-shadow: 0 4px 12px rgba(236, 142, 65, 0.1);
+    transition: all 0.3s ease;
+}
+
+    .category-item:hover {
+        transform: translateX(5px);
+        box-shadow: 0 6px 16px rgba(236, 142, 65, 0.2);
+        border-left-width: 8px;
+    }
+
+.category-name {
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+    .category-name::before {
+        content: '💼';
+        font-size: 1.3rem;
+        background: var(--light-orange);
+        padding: 4px 8px;
+        border-radius: 20px;
+    }
+
+.category-stats {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    background: var(--cream);
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+    .category-stats span {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--dark-blue);
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    .category-stats i {
+        color: var(--orange);
+        width: 20px;
+        font-size: 1.1rem;
+    }
+
+/* Бейджи с зарплатами - в новых цветах */
+.salary-range {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 1.2rem 0;
+}
+
+.salary-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1.2rem;
+    border-radius: 30px;
+    font-size: 0.1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: all 0.2s;
+    flex: 1;
+    justify-content: center;
+    min-width: 100px;
+}
+
+    .salary-badge:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.05);
+    }
+
+.badge-min {
+    background: linear-gradient(135deg, var(--cream), var(--light-orange));
+    color: var(--dark-blue);
+    border: 1px solid var(--orange);
+}
+
+.badge-avg {
+    background: linear-gradient(135deg, var(--light-orange), var(--orange));
+    color: white;
+    border: 1px solid var(--orange);
+}
+
+.badge-max {
+    background: linear-gradient(135deg, var(--orange), var(--dark-blue));
+    color: white;
+    border: 1px solid var(--dark-blue);
+}
+
+/* Шкала зарплат */
+.salary-bar {
+    width: 100%;
+    height: 10px;
+    background: var(--cream);
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 1rem 0;
+    position: relative;
+    border: 1px solid var(--light-orange);
+}
+
+.salary-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--orange), var(--mint));
+    border-radius: 20px;
+    transition: width 0.8s ease;
+    position: relative;
+}
+
+/* Футер категории */
+.category-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding-top: 0.8rem;
+    border-top: 2px solid var(--cream);
+    font-size: 0.9rem;
+    background: white;
+    padding: 0.8rem;
+    border-radius: 10px;
+}
+
+    .category-footer span {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--dark-blue);
+        font-weight: 500;
+    }
+
+        .category-footer span:first-child {
+            color: var(--orange);
+        }
+
+        .category-footer span:last-child {
+            color: var(--dark-blue);
+        }
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .category-stats {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .salary-range {
+        flex-direction: column;
+    }
+
+    .salary-badge {
+        width: 100%;
+    }
+
+    .category-footer {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+}
+
+/* Специальные иконки для разных категорий */
+.category-item[data-category*="ML"] .category-name::before {
+    content: '🤖';
+    background: var(--mint);
+}
+
+.category-item[data-category*="web"] .category-name::before,
+.category-item[data-category*="Web"] .category-name::before {
+    content: '🌐';
+    background: var(--mint);
+}
+
+.category-item[data-category*="Android"] .category-name::before,
+.category-item[data-category*="android"] .category-name::before {
+    content: '📱';
+    background: var(--mint);
+}
+
+.category-item[data-category*="iOS"] .category-name::before,
+.category-item[data-category*="ios"] .category-name::before {
+    content: '🍎';
+    background: var(--mint);
+}
+
+.category-item[data-category*="Design"] .category-name::before,
+.category-item[data-category*="design"] .category-name::before {
+    content: '🎨';
+    background: var(--mint);
+}
+
+.category-item[data-category*="Analyst"] .category-name::before,
+.category-item[data-category*="analyst"] .category-name::before {
+    content: '📊';
+    background: var(--mint);
 }

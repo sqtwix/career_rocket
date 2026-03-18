@@ -2,7 +2,7 @@
 Routes and views for the bottle application.
 """
 
-from bottle import route, view
+from bottle import route, view, template  
 import json
 from datetime import datetime
 
@@ -36,7 +36,7 @@ def about():
     )
 
 @route('/analytics')
-@view("analytics")
+@view('analytics')
 def analytics():
 
     # Загрузка данных из json
