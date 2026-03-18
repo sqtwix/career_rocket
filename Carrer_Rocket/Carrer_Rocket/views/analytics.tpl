@@ -1,12 +1,10 @@
-﻿%rebase('layout.tpl', title='Главная страница')
-
-
-
-<!-- Подключение стилей -->
+﻿<!-- Подключение стилей -->
 <link rel="stylesheet" type="text/css" href="/static/content/analytics.css" />
 
-<!-- Шапка страницы -->
+<!-- Шапка страницы --  >
 % rebase('layout.tpl', title='Аналитика рынка IT', year=year)
+
+<div class="analytics-page">
 
 <!-- Шапка страницы -->
 <div class="page-header">
@@ -17,16 +15,10 @@
 
 <!-- Три окна для отображение самой статистики -->
  <div class="container body-content">
-        <!-- Шапка страницы -->
-        <div class="page-header">
-            <h1>📊 Аналитика рынка IT</h1>
-            <p>Актуальные данные за {{ year }} год • Более 4000 вакансий</p>
-        </div>
-
         <!-- Три окна для статистики -->
         <div class="row">
             <!-- Окно круговой диаграммы-->
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="window window-pie">
                     <h2>Распределение вакансий</h2>
                     <canvas id="pieChart"></canvas>
@@ -34,7 +26,7 @@
             </div>
 
             <!-- Окно справки по вакансиям -->
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="window window-info">
                     <h2>Детали по категориям</h2>
                     <div id="categoryList"></div>
@@ -51,14 +43,8 @@
                 </div>
             </div>
         </div>
-
         <hr />
-        <footer>
-            <p>&copy; {{ year }} - My Bottle Application</p>
-        </footer>
     </div>
-</div>
-
 
 <!-- Подключение скриптов -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
