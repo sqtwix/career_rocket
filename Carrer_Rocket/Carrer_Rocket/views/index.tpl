@@ -15,7 +15,7 @@
         <button type="submit" class="btnhome btn-default">Найти</button>
     </div>
     </form>
-<div class="popular-tags">
+<div class="popular-tagshome">
         <a href="/search?query=python" class="tag">Python</a>
         <a href="/search?query=javascript" class="tag">JavaScript</a>
         <a href="/search?query=стажировка" class="tag">Стажировка</a>
