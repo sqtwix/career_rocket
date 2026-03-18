@@ -40,13 +40,22 @@ function createPieChart(data) {
             responsive: true,
            // maintainAspectRatio: false,
             plugins: {
-                legend: { position: 'right' },
+                legend: {
+                    position: 'right',
+                    labels: {
+                        font: { size: 16 }
+                    }
+                },
                 tooltip: {
                     callbacks: {
                         label: (ctx) => {
                             const total = ctx.dataset.data.reduce((a, b) => a + b, 0);
                             const percent = ((ctx.raw / total) * 100).toFixed(1);
                             return `${ctx.label}: ${ctx.raw} вакансий (${percent}%)`;
+
+                            font: {
+                                size: 20
+                            }
                         }
                     }
                 }
@@ -135,13 +144,24 @@ function createBarChart(data) {
                     callbacks: {
                         label: (ctx) => `${ctx.dataset.label}: ${ctx.raw.toLocaleString()} ₽`
                     }
+                },
+                legend: {
+                    labels: {
+                        font: { size: 16 }
+                    }
                 }
             },
             scales: {
                 y: {
                     beginAtZero: true,
                     ticks: {
+                        font: { size: 14 },
                         callback: (v) => v.toLocaleString() + ' ₽'
+                    }
+                },
+                x: {
+                    ticks: {
+                        font: { size: 14 }
                     }
                 }
             }
