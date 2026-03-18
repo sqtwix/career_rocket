@@ -14,16 +14,17 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 20px 0;
+    padding-top: 80px;
 }
 
-.container {
+.containerhome {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
 }
 
 /* Стили для Jumbotron */
-.jumbotron {
+.jumbotronhome {
     background: linear-gradient(135deg, var(--orange) 0%, var(--light-orange) 100%) !important;
     border-radius: 20px !important;
     padding: 40px !important;
@@ -34,7 +35,7 @@ body {
     overflow: hidden;
 }
 
-    .jumbotron::before {
+    .jumbotronhome::before {
         content: '';
         position: absolute;
         top: -50%;
@@ -54,28 +55,28 @@ body {
         transform: rotate(360deg);
     }
 }
-.jumbotron .lead {
-    color: var(--dark-blue); 
-    font-size: 1.5em; 
-    font-weight: 600; 
+.jumbotronhome .lead {
+    color: var(--dark-blue);
+    font-size: 1.5em;
+    font-weight: 600;
     position: relative;
 }
 
 /* Стили для колонок */
-.container {
+.containerhome {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
     width: 100%;
 }
 
-.row {
+.rowhome {
     display: flex;
     flex-wrap: wrap;
     margin: 0 -15px;
 }
 
-.col-md-4 {
+.col-md-4home {
     flex: 0 0 calc(33.333% - 30px);
     margin: 15px;
     background: linear-gradient(135deg, var(--cream) 0%, #fff9e6 100%);
@@ -84,13 +85,15 @@ body {
     box-shadow: 0 10px 30px rgba(3, 24, 73, 0.2);
     transition: all 0.3s ease;
     border: 1px solid var(--light-orange);
+    color: var(--dark-blue);
+    font-size: 1.5em;
     position: relative;
     overflow: hidden;
 }
 
 
 /* Стили для кнопок */
-.btn {
+.btnhome {
     display: inline-block;
     padding: 12px 24px;
     border-radius: 50px;
@@ -136,7 +139,7 @@ body {
     padding: 5px;
     border: 3px solid #ec8e41;
     width: 100%;
-    max-width: 700px;
+    max-width: 1000px;
 }
 
 .search-input {
@@ -159,11 +162,79 @@ body {
 }
 
 .tag {
-    padding: 5px 15px;
+    padding: 10px 25px;
     background: #ec8e41;
-    border-radius: 30px;
+    border-radius: 40px;
     color: var(--dark-blue);
     text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .card-list li {
+        color: #0c0841;
+        margin-bottom: 8px;
+        font-size: 0.95rem;
+    }
+
+/* Шапка */
+.navbar-inverse {
+    background: var(--dark-blue);
+    border-bottom: 3px solid var(--orange);
+    padding: 5px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    color: var(--orange);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.navbar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    float: right;
+    margin-right: 20px;
+}
+
+    .navbar-nav li {
+        display: inline-block;
+        margin: 0 12px;
+    }
+
+    .navbar-nav a {
+        color: var(--cream);
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+        .navbar-nav a:hover {
+            color: var(--orange);
+        }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--cream);
+    border-top: none;
 }
