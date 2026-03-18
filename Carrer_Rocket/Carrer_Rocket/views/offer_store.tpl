@@ -1,15 +1,16 @@
-%rebase('layout.tpl', title='Пакеты услуг - Career Rocket')
+% rebase('layout.tpl', title='Пакеты услуг - Career Rocket')
 
-{{!offers_store_styles.tpl}}
+<link rel="stylesheet" type="text/css" href="/static/content/offer_store.css">
 
-<div class="offers-container">
-    <div class="offers-header">
+<div class="page-header text-center">
+    <div class="container">
         <h1>Найди работу своей мечты в IT</h1>
         <p>Индивидуальный подход, персональные консультации и помощь в трудоустройстве</p>
     </div>
+</div>
 
+<div class="container">
     <div class="packages-grid">
-        <!-- Базовый пакет -->
         <div class="package-card">
             <div class="package-header">
                 <span class="badge">Старт</span>
@@ -30,7 +31,6 @@
             <button class="btn">Выбрать пакет</button>
         </div>
 
-        <!-- Оптимальный пакет (популярный) -->
         <div class="package-card popular">
             <div class="popular-badge">Самый популярный</div>
             <div class="package-header">
@@ -53,7 +53,6 @@
             <button class="btn btn-primary">Выбрать пакет</button>
         </div>
 
-        <!-- Премиум пакет -->
         <div class="package-card">
             <div class="package-header">
                 <span class="badge">VIP</span>
