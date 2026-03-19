@@ -9,11 +9,11 @@
 </div>
 
 <div class="search">
-    <form action="/search" method="get" class="search-form">
-    <div class="search-input-group">
-        <input type="text" name="query" placeholder="Поиск вакансий, стажировок..." class="search-input">
-        <button type="submit" class="btnhome btn-default">Найти</button>
-    </div>
+    <form action="https://tgaijobs.ru/vacancies" method="get" class="search-form" target="_blank">
+        <div class="search-input-group">
+            <input type="text" name="title" placeholder="Поиск вакансий, стажировок..." class="search-input">
+            <button type="submit" class="btnhome btn-default">Найти</button>
+        </div>
     </form>
 <div class="popular-tagshome">
         <a href="https://tgaijobs.ru/vacancies?title=python" class="tag">Python</a>
