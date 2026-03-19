@@ -2,7 +2,7 @@
 Routes and views for the bottle application.
 """
 
-from bottle import route, view, template  
+from bottle import route, view, template, static_file  
 import json
 from datetime import datetime
 
@@ -62,3 +62,13 @@ def offer_store():
             message='Магазин предложений',
             year = datetime.now().year
             )
+
+# Маршрут для статических файлов (CSS, JS)
+@route('/static/<filepath:path>')
+def serve_static(filepath):
+    return static_file(filepath, root='./static')
+
+# Маршрут для данных (JSON)
+@route('/data/<filename>')
+def serve_data(filename):
+    return static_file(filename, root='./data')

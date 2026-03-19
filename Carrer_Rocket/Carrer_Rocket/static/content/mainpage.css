@@ -147,7 +147,7 @@ body {
     background: transparent;
     border: none;
     padding: 15px 25px;
-    font-size: 1.2rem;
+    font-size: 2.0rem;
     color: #031849;
     outline: none;
 }
@@ -180,7 +180,7 @@ body {
     .card-list li {
         color: #0c0841;
         margin-bottom: 8px;
-        font-size: 0.95rem;
+        font-size: 1.5rem;
     }
 
 /* Шапка */
