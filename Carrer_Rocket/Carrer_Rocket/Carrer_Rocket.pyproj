@@ -37,6 +37,7 @@
     <Folder Include="static\" />
     <Folder Include="static\content\" />
     <Folder Include="static\fonts\" />
+    <Folder Include="static\images\" />
     <Folder Include="static\scripts\" />
     <Folder Include="views\" />
   </ItemGroup>
@@ -47,11 +48,13 @@
     <Content Include="static\content\analytics.css" />
     <Content Include="static\content\bootstrap.css" />
     <Content Include="static\content\bootstrap.min.css" />
+    <Content Include="static\content\mainpage.css" />
     <Content Include="static\content\site.css" />
     <Content Include="static\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="static\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="static\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="static\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="static\images\rocket.png" />
     <Content Include="static\scripts\analytics.js" />
     <Content Include="static\scripts\bootstrap.js" />
     <Content Include="static\scripts\bootstrap.min.js" />
@@ -75,6 +78,10 @@
     <Content Include="views\layout.tpl" />
   </ItemGroup>
   <ItemGroup>
+    <Interpreter Include="Carrer_Rocket\">
+      <Id>Carrer_Rocket</Id>
+      <Version>3.12</Version>
+      <Description>Carrer_Rocket (Python 3.12 (64-bit))</Description>
     <Interpreter Include="env\">
       <Id>env</Id>
       <Version>3.13</Version>

@@ -1,0 +1,240 @@
+﻿/* Цветовая палитра */
+:root {
+    --orange: #ec8e41;
+    --light-orange: #f1c174;
+    --cream: #f6e5a7;
+    --mint: #a7f6ed;
+    --dark-blue: #031849;
+}
+
+/* Общие стили */
+body {
+    background: linear-gradient(135deg, var(--dark-blue) 0%, #052a6b 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px 0;
+    padding-top: 80px;
+}
+
+.containerhome {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Стили для Jumbotron */
+.jumbotronhome {
+    background: linear-gradient(135deg, var(--orange) 0%, var(--light-orange) 100%) !important;
+    border-radius: 20px !important;
+    padding: 40px !important;
+    margin-bottom: 30px !important;
+    box-shadow: 0 20px 40px rgba(3, 24, 73, 0.3);
+    border: 2px solid var(--cream);
+    position: relative;
+    overflow: hidden;
+}
+
+    .jumbotronhome::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+        animation: shine 10s infinite linear;
+    }
+
+@keyframes shine {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+.jumbotronhome .lead {
+    color: var(--dark-blue);
+    font-size: 1.5em;
+    font-weight: 600;
+    position: relative;
+}
+
+/* Стили для колонок */
+.containerhome {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    width: 100%;
+}
+
+.rowhome {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.col-md-4home {
+    flex: 0 0 calc(33.333% - 30px);
+    margin: 15px;
+    background: linear-gradient(135deg, var(--cream) 0%, #fff9e6 100%);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(3, 24, 73, 0.2);
+    transition: all 0.3s ease;
+    border: 1px solid var(--light-orange);
+    color: var(--dark-blue);
+    font-size: 1.5em;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Стили для кнопок */
+.btnhome {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--dark-blue) 0%, #052a6b 100%);
+    color: white;
+    box-shadow: 0 5px 15px rgba(3, 24, 73, 0.4);
+}
+
+.btn-default {
+    background: var(--orange);
+    color: var(--dark-blue);
+    box-shadow: 0 5px 15px rgba(167, 246, 237, 0.4);
+}
+
+
+/* Стили для поиска*/
+.search {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.search-input-group {
+    display: flex;
+    align-items: center;
+    background: var(--cream);
+    border-radius: 60px;
+    padding: 5px;
+    border: 3px solid #ec8e41;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    color: #031849;
+    outline: none;
+}
+
+/* Стили для тэгов*/
+.popular-tagshome {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 10px 25px;
+    background: #ec8e41;
+    border-radius: 40px;
+    color: var(--dark-blue);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .card-list li {
+        color: #0c0841;
+        margin-bottom: 8px;
+        font-size: 0.95rem;
+    }
+
+/* Шапка */
+.navbar-inverse {
+    background: var(--dark-blue);
+    border-bottom: 3px solid var(--orange);
+    padding: 5px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    color: var(--orange);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.navbar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    float: right;
+    margin-right: 20px;
+}
+
+    .navbar-nav li {
+        display: inline-block;
+        margin: 0 12px;
+    }
+
+    .navbar-nav a {
+        color: var(--cream);
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+        .navbar-nav a:hover {
+            color: var(--orange);
+        }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--cream);
+    border-top: none;
+}

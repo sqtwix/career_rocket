@@ -1,4 +1,4 @@
-body {
+﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -13,7 +13,7 @@ body {
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: none; 
 }
 
 /* styles for validation helpers */
