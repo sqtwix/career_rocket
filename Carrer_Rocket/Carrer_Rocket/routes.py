@@ -8,7 +8,7 @@ from datetime import datetime
 
 @route('/')
 @route('/home')
-@view('offer_store')
+@view('index')
 def home():
     """Renders the home page."""
     return dict(
@@ -53,3 +53,12 @@ def analytics():
         salaries=json.dumps(salaries_data, ensure_ascii=False),
         year=2026
         )
+
+@route('/offer_store')
+@view('offer_store')
+def offer_store():
+    return dict(
+            title='Offer_store',
+            message='Магазин предложений',
+            year = datetime.now().year
+            )
