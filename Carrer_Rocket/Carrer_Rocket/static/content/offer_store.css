@@ -195,15 +195,6 @@
     text-overflow: ellipsis !important;
 }
 
-.consultation-tag:before {
-    content: "⭐" !important;
-    color: #F5C857 !important;
-    font-size: 16px !important;
-    position: absolute !important;
-    left: 0 !important;
-    top: 8px !important;
-}
-
 .btn {
     display: block !important;
     width: 100% !important;
