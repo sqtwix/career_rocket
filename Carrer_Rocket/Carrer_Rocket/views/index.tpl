@@ -16,11 +16,11 @@
     </div>
     </form>
 <div class="popular-tagshome">
-        <a href="/search?query=python" class="tag">Python</a>
-        <a href="/search?query=javascript" class="tag">JavaScript</a>
-        <a href="/search?query=стажировка" class="tag">Стажировка</a>
-        <a href="/search?query=frontend" class="tag">Frontend</a>
-        <a href="/search?query=backend" class="tag">Backend</a>
+        <a href="https://tgaijobs.ru/vacancies?title=python" class="tag">Python</a>
+        <a href="https://tgaijobs.ru/vacancies?title=JavaScript" class="tag">JavaScript</a>
+        <a href="https://tgaijobs.ru/vacancies?employment_type_id=5" class="tag">Стажировка</a>
+        <a href="https://tgaijobs.ru/vacancies?title=Frontend" class="tag">Frontend</a>
+        <a href="https://tgaijobs.ru/vacancies?title=Backend" class="tag">Backend</a>
     </div>
 </div>
 
