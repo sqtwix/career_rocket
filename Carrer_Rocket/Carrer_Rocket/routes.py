@@ -57,18 +57,19 @@ def analytics():
 @route('/offer_store')
 @view('offer_store')
 def offer_store():
+    hh_link = "https://hh.ru/search/vacancy?area=113&professional_role=96&professional_role=104&professional_role=124&professional_role=125&professional_role=126&text=IT"
+    
     return dict(
-            title='Offer_store',
-            message='Магазин предложений',
-            year = datetime.now().year
-            )
+        title='Offer_store',
+        message='Магазин предложений',
+        year=datetime.now().year,
+        hh_link=hh_link
+    )
 
-# Маршрут для статических файлов (CSS, JS)
 @route('/static/<filepath:path>')
 def serve_static(filepath):
     return static_file(filepath, root='./static')
 
-# Маршрут для данных (JSON)
 @route('/data/<filename>')
 def serve_data(filename):
     return static_file(filename, root='./data')

@@ -84,7 +84,7 @@ function renderOffers(offers) {
             html += `<div class="consultation-tag">${offer.consultation_tag}</div>`;
         }
         
-        html += `<button class="${offer.button_class}">${offer.button_text}</button>`;
+        html += `<a href="${window.hhLink}" target="_blank" class="${offer.button_class}" style="margin-top: auto; display: block;">${offer.button_text}</a>`;
         
         card.innerHTML = html;
         container.appendChild(card);

@@ -302,3 +302,34 @@
         font-size: 36px !important;
     }
 }
+
+.package-card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    min-height: 680px !important;
+}
+
+.package-card .btn,
+.package-card a.btn {
+    margin-top: auto !important;
+    align-self: stretch !important;
+    display: inline-block !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    margin-bottom: 0 !important;
+    cursor: pointer !important;
+}
+
+.package-card.popular .btn-primary {
+    background: #E2852E !important;
+    color: #0A1929 !important;
+    border: 2px solid #E2852E !important;
+}
+
+.package-card.popular .btn-primary:hover {
+    background: transparent !important;
+    color: #E2852E !important;
+}

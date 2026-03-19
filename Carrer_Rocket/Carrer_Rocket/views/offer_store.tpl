@@ -14,4 +14,7 @@
     </div>
 </div>
 
+<script>
+    window.hhLink = "{{hh_link}}";
+</script>
 <script src="/static/scripts/offer-loader.js"></script>
