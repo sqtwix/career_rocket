@@ -9,18 +9,18 @@
 </div>
 
 <div class="search">
-    <form action="/search" method="get" class="search-form">
-    <div class="search-input-group">
-        <input type="text" name="query" placeholder="Поиск вакансий, стажировок..." class="search-input">
-        <button type="submit" class="btnhome btn-default">Найти</button>
-    </div>
+    <form action="https://tgaijobs.ru/vacancies" method="get" class="search-form" target="_blank">
+        <div class="search-input-group">
+            <input type="text" name="title" placeholder="Поиск вакансий, стажировок..." class="search-input">
+            <button type="submit" class="btnhome btn-default">Найти</button>
+        </div>
     </form>
 <div class="popular-tagshome">
-        <a href="/search?query=python" class="tag">Python</a>
-        <a href="/search?query=javascript" class="tag">JavaScript</a>
-        <a href="/search?query=стажировка" class="tag">Стажировка</a>
-        <a href="/search?query=frontend" class="tag">Frontend</a>
-        <a href="/search?query=backend" class="tag">Backend</a>
+        <a href="https://tgaijobs.ru/vacancies?title=python" class="tag">Python</a>
+        <a href="https://tgaijobs.ru/vacancies?title=JavaScript" class="tag">JavaScript</a>
+        <a href="https://tgaijobs.ru/vacancies?employment_type_id=5" class="tag">Стажировка</a>
+        <a href="https://tgaijobs.ru/vacancies?title=Frontend" class="tag">Frontend</a>
+        <a href="https://tgaijobs.ru/vacancies?title=Backend" class="tag">Backend</a>
     </div>
 </div>
 
