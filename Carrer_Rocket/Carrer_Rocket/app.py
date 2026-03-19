@@ -1,8 +1,10 @@
-"""
+﻿"""
 This script runs the application using a development server.
 """
 
 import bottle
+bottle.TEMPLATES.clear() 
+
 import os
 import sys
 
