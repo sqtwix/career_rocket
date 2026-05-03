@@ -238,3 +238,108 @@ footer {
     color: var(--cream);
     border-top: none;
 }
+
+/* ---------- Стили для страницы отзывов ---------- */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+    .form-group label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: var(--dark-blue);
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid var(--light-orange);
+        border-radius: 8px;
+        font-size: 1rem;
+        font-family: inherit;
+        transition: 0.2s;
+    }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--orange);
+            box-shadow: 0 0 0 3px rgba(236, 142, 65, 0.2);
+        }
+
+textarea {
+    resize: vertical;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, var(--orange), var(--light-orange));
+    border: none;
+    padding: 12px 28px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 40px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+    .btn-submit:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 12px rgba(236, 142, 65, 0.4);
+    }
+
+.alert-error {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 5px solid #dc3545;
+}
+
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.review-card {
+    background: #fef9f0;
+    border-radius: 16px;
+    padding: 18px;
+    border-left: 5px solid var(--orange);
+    transition: 0.2s;
+}
+
+    .review-card:hover {
+        transform: translateX(4px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--cream);
+}
+
+.review-author {
+    font-size: 1.2rem;
+    color: var(--dark-blue);
+    font-weight: 700;
+}
+
+.review-date {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.review-text {
+    color: #333;
+    line-height: 1.5;
+}

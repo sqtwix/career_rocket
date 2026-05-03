@@ -2,9 +2,13 @@
 Routes and views for the bottle application.
 """
 
-from bottle import route, view, template, static_file  
+from bottle import route, view, template, static_file, request, redirect
 import json
+import os
 from datetime import datetime
+
+# consts
+FEEDBACK_FILE = 'data/feedback.json'
 
 @route('/')
 @route('/home')
@@ -73,3 +77,68 @@ def serve_static(filepath):
 @route('/data/<filename>')
 def serve_data(filename):
     return static_file(filename, root='./data')
+
+def load_feedback():
+    """Загружает отзывы из JSON-файла"""
+    if os.path.exists(FEEDBACK_FILE):
+        with open(FEEDBACK_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return []
+
+def save_feedback(data):
+    """Сохраняет отзывы в JSON-файл"""
+    with open(FEEDBACK_FILE, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+
+@route('/feedback', method='GET')
+@view('feedback')
+def feedback_get():
+    """Показывает страницу отзывов"""
+    reviews = load_feedback()
+    # Сортировка: сначала новые (по дате убывания)
+    reviews.sort(key=lambda x: x['date'], reverse=True)
+    return {
+        'reviews': reviews,
+        'author': '',
+        'text': '',
+        'error': None
+    }
+
+@route('/feedback', method='POST')
+@view('feedback')
+def feedback_post():
+    """Обрабатывает добавление нового отзыва"""
+    author = request.forms.get('author', '').strip()
+    text = request.forms.get('text', '').strip()
+    
+    # Валидация
+    errors = []
+    if not author or len(author) < 2:
+        errors.append('Имя автора должно содержать не менее 2 символов')
+    if not text or len(text) < 5:
+        errors.append('Текст отзыва должен содержать не менее 5 символов')
+    
+    if errors:
+        # Возвращаем форму с ошибкой и сохранёнными данными
+        reviews = load_feedback()
+        reviews.sort(key=lambda x: x['date'], reverse=True)
+        return {
+            'reviews': reviews,
+            'author': author,
+            'text': text,
+            'error': '; '.join(errors)
+        }
+    
+    # Создание нового отзыва
+    new_review = {
+        'author': author,
+        'text': text,
+        'date': datetime.now().isoformat()
+    }
+    
+    reviews = load_feedback()
+    reviews.append(new_review)
+    save_feedback(reviews)
+    
+    # Перенаправляем на GET, чтобы очистить форму
+    redirect('/feedback')
