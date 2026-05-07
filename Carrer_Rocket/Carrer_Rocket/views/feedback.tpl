@@ -1,7 +1,4 @@
-﻿% rebase('layout.tpl', title='Отзывы')
-
-<!-- Подключение стилей -->
-<link rel="stylesheet" type="text/css" href="/static/content/mainpage.css" />
+% rebase('layout.tpl', title='Отзывы о продукте', year=year)
 
 <div class="container">
     <div class="page-header">
@@ -11,9 +8,7 @@
     <div class="window">
         <h2>Оставить отзыв</h2>
         % if error:
-        <div class="alert alert-error" style="background: #f8d7da; color: #721c24; padding: 10px; border-radius: 8px; margin-bottom: 20px;">
-            {{!error}}
-        </div>
+        <div class="alert alert-error">{{!error}}</div>
         % end
         <form action="/feedback" method="post">
             <div class="form-group">

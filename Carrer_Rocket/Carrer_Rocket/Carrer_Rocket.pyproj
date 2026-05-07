@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\categories.json" />
-    <Content Include="data\feedbacks.json" />
+    <Content Include="data\feedback.json" />
     <Content Include="data\salaries.json" />
     <Content Include="requirements.txt" />
     <Content Include="static\content\analytics.css" />

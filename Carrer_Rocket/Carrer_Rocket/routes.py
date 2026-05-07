@@ -2,7 +2,7 @@
 Routes and views for the bottle application.
 """
 
-from bottle import route, view, template, static_file, request, redirect
+from bottle import route, view, template, static_file, request, redirect, response
 import json
 import os
 from datetime import datetime
@@ -55,7 +55,7 @@ def analytics():
         message='Аналитка рынка.',
         categories=json.dumps(categories_data, ensure_ascii=False),
         salaries=json.dumps(salaries_data, ensure_ascii=False),
-        year=2026
+        year=datetime.now().year
         )
 
 @route('/offer_store')
@@ -78,6 +78,8 @@ def serve_static(filepath):
 def serve_data(filename):
     return static_file(filename, root='./data')
 
+
+# Доп функции для страницы отзывов
 def load_feedback():
     """Загружает отзывы из JSON-файла"""
     if os.path.exists(FEEDBACK_FILE):
@@ -94,24 +96,24 @@ def save_feedback(data):
 @view('feedback')
 def feedback_get():
     """Показывает страницу отзывов"""
+    response.content_type = 'text/html; charset=utf-8'
     reviews = load_feedback()
+
     # Сортировка: сначала новые (по дате убывания)
     reviews.sort(key=lambda x: x['date'], reverse=True)
     return {
         'reviews': reviews,
         'author': '',
         'text': '',
-        'error': None
+        'error': None,
+        'year': datetime.now().year
     }
 
 @route('/feedback', method='POST')
-@view('feedback')
 def feedback_post():
-    """Обрабатывает добавление нового отзыва"""
-    author = request.forms.get('author', '').strip()
-    text = request.forms.get('text', '').strip()
+    author = request.forms.getunicode('author', '').strip()
+    text = request.forms.getunicode('text', '').strip()
     
-    # Валидация
     errors = []
     if not author or len(author) < 2:
         errors.append('Имя автора должно содержать не менее 2 символов')
@@ -119,26 +121,25 @@ def feedback_post():
         errors.append('Текст отзыва должен содержать не менее 5 символов')
     
     if errors:
-        # Возвращаем форму с ошибкой и сохранёнными данными
         reviews = load_feedback()
         reviews.sort(key=lambda x: x['date'], reverse=True)
-        return {
-            'reviews': reviews,
-            'author': author,
-            'text': text,
-            'error': '; '.join(errors)
-        }
+        # Рендерим шаблон явно, а не возвращаем словарь
+        return template('feedback', 
+                        reviews=reviews,
+                        author=author,
+                        text=text,
+                        error='; '.join(errors),
+                        year=datetime.now().year)
     
-    # Создание нового отзыва
+    # Всё валидно – сохраняем
     new_review = {
         'author': author,
         'text': text,
         'date': datetime.now().isoformat()
     }
-    
     reviews = load_feedback()
     reviews.append(new_review)
     save_feedback(reviews)
     
-    # Перенаправляем на GET, чтобы очистить форму
-    redirect('/feedback')
+    # Редирект для очистки формы
+    return redirect('/feedback')
