@@ -7,6 +7,7 @@ bottle.TEMPLATES.clear()
 
 import os
 import sys
+import controllers.feeadback_controller
 
 # routes contains the HTTP handlers for our server and must be imported.
 import routes
