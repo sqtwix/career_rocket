@@ -2,7 +2,6 @@
 This script runs the application using a development server.
 """
 
-from services import news_service
 import bottle
 bottle.TEMPLATES.clear() 
 
@@ -23,7 +22,6 @@ def wsgi_app():
     return bottle.default_app()
 
 if __name__ == '__main__':
-    print(news_service.NewsService.get_all_news().count())
     PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
     STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static').replace('\\', '/')
     HOST = os.environ.get('SERVER_HOST', 'localhost')

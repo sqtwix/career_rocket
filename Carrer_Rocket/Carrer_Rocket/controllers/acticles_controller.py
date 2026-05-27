@@ -1,10 +1,8 @@
-# controllers/news_controller.py
 from bottle import request, template, redirect
-from services.news_service import NewsService
+from services.article_service import ArticleService
 from services.validation_service import ValidationError
 
-
-class NewsController:
+class ArticlesController:
     
     @staticmethod
     def index():
@@ -13,17 +11,17 @@ class NewsController:
         
         try:
             if start_date and end_date:
-                news_list = NewsService.get_all_news_by_interval(start_date, end_date)
+                articles = ArticleService.get_all_articles_by_interval(start_date, end_date)
             else:
-                news_list = NewsService.get_all_news()
-        except ValueError as e:
-            news_list = NewsService.get_all_news()
+                articles = ArticleService.get_all_articles()
+        except ValueError:
+            articles = ArticleService.get_all_articles()
         
-        news_list.sort(key=lambda x: x.postDate, reverse=True)
+        articles.sort(key=lambda x: x.postDate, reverse=True)
         
         return template(
-            'news_template',
-            news_list=news_list,
+            'articles',
+            articles=articles,
             errors={},
             form_data={},
             start_date=start_date,
@@ -41,14 +39,14 @@ class NewsController:
         }
         
         try:
-            NewsService.add_new_news(form_data)
-            redirect('/news')
+            ArticleService.add_new_article(form_data)
+            redirect('/articles')
         except ValidationError as e:
-            news_list = NewsService.get_all_news()
-            news_list.sort(key=lambda x: x.postDate, reverse=True)
+            articles = ArticleService.get_all_articles()
+            articles.sort(key=lambda x: x.postDate, reverse=True)
             return template(
-                'news_template',
-                news_list=news_list,
+                'articles',
+                articles=articles,
                 errors=e.errors,
                 form_data=form_data,
                 start_date='',
@@ -59,4 +57,4 @@ class NewsController:
     def filter_by_date():
         start_date = request.forms.get('start_date', '').strip()
         end_date = request.forms.get('end_date', '').strip()
-        redirect(f'/news?start_date={start_date}&end_date={end_date}')
+        redirect(f'/articles?start_date={start_date}&end_date={end_date}')

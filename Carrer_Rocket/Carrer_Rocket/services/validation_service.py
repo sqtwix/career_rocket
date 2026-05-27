@@ -1,18 +1,15 @@
-# services/validation_service.py
 import re
 from datetime import datetime
-
 
 class ValidationError(Exception):
     def __init__(self, errors: dict):
         self.errors = errors
         super().__init__(str(errors))
 
-
 class ValidationService:
     
     @staticmethod
-    def validate_news_form(form_data: dict) -> dict:
+    def validate_article_form(form_data: dict) -> dict:
         errors = {}
         
         header = form_data.get('header', '')
@@ -56,10 +53,10 @@ class ValidationService:
         
         text = form_data.get('text', '')
         if not text:
-            errors['text'] = 'Текст новости обязателен для заполнения'
+            errors['text'] = 'Текст статьи обязателен для заполнения'
         elif len(text) < 20:
-            errors['text'] = 'Текст новости должен содержать не менее 20 символов'
+            errors['text'] = 'Текст статьи должен содержать не менее 20 символов'
         elif len(text) > 5000:
-            errors['text'] = 'Текст новости не должен превышать 5000 символов'
+            errors['text'] = 'Текст статьи не должен превышать 5000 символов'
         
         return errors
