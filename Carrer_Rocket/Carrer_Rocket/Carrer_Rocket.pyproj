@@ -19,6 +19,9 @@
     <Name>Carrer_Rocket</Name>
     <RootNamespace>Carrer_Rocket</RootNamespace>
     <InterpreterId>MSBuild|Carrer|$(MSBuildProjectFullPath)</InterpreterId>
+    <TestFramework>unittest</TestFramework>
+    <UnitTestPattern>test*.py</UnitTestPattern>
+    <UnitTestRootDirectory>.</UnitTestRootDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,12 +33,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.py" />
-    <Compile Include="date_test.py">
+    <Compile Include="routes.py" />
+    <Compile Include="tests\test_news.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="routes.py" />
+    <Compile Include="tests\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="tests\" />
     <Folder Include="static\" />
     <Folder Include="static\content\" />
     <Folder Include="static\fonts\" />

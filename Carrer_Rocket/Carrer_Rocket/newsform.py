@@ -1,3 +1,4 @@
+from ast import parse
 import json
 import os
 from datetime import datetime
@@ -33,6 +34,8 @@ def validate_news_data(title,category, description, date):
     description = description.strip() if description else ''
     date = date.strip() if date else ''
 
+    is_date_valid, date_result = validate_date(date)
+
     if not title:
         errors.append('Название обязательно')
     if not category:
@@ -41,8 +44,34 @@ def validate_news_data(title,category, description, date):
         errors.append('Описание обязательно')
     if not date:
         errors.append('Дата обязательна')
+    if not is_date_valid:
+        errors.append(date_result) 
+    else:
+        date = date_result 
 
     return errors, title,category, description, date
+
+def validate_date(date_str):
+    if not date_str or not date_str.strip():
+        return False, "Дата не может быть пустой"
+    date_str = date_str.strip()
+    if len(date_str) != 10 or date_str[4] != '-' or date_str[7] != '-':
+        return False, "Неверный формат даты. Используйте ГГГГ-ММ-ДД"
+    try:
+        parsed_date = datetime.strptime(date_str, '%Y-%m-%d')
+
+        if parsed_date > datetime.now():
+            return False, "Дата не может быть в будущем"
+
+        if parsed_date.year < 2000:
+            return False, "Год должен быть не раньше 2000"
+        
+        if parsed_date.year > 2030:
+            return False, "Год должен быть не позже 2030"
+        
+        return True, date_str
+    except ValueError:
+        return False, "Несуществующая дата"
 
 def add_news_item(title, category, description, date):
     """Добавляет новую новинку в файл."""
