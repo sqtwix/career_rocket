@@ -38,6 +38,7 @@ body {
 }
 
     .jumbotronhome::before {
+        display: none !important;
         content: '';
         position: absolute;
         top: -50%;
@@ -335,3 +336,21 @@ footer {
         text-align: center;
     }
 
+
+
+.alert-error {
+    background-color: transparent;
+    color: red;
+    padding: 0.2rem 0.4rem;
+}
+
+.btnhome, .btn-default {
+    transition: all 0.3s ease;
+}
+
+    .btn-default:hover {
+        background: #f1c174 !important;
+        color: #031849 !important;
+        transform: scale(1.05) !important;
+        box-shadow: 0 10px 25px rgba(236, 142, 65, 0.5) !important;
+    }
