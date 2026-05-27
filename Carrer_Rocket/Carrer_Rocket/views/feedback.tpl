@@ -7,13 +7,23 @@
 
     <div class="window">
         <h2>Оставить отзыв</h2>
-        % if error:
-        <div class="alert alert-error">{{!error}}</div>
+        % if errors:
+        <div class="alert alert-error">
+            <ul style="margin: 0; padding-left: 20px;">
+                % for err in errors:
+                <li>{{!err}}</li>
+                % end
+            </ul>
+        </div>
         % end
         <form action="/feedback" method="post">
             <div class="form-group">
                 <label for="author">Ваше имя:</label>
                 <input type="text" id="author" name="author" value="{{author}}" placeholder="Иван Петров" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Ваш email:</label>
+                <input type="text" id="email" name="email" value="{{email}}" placeholder="example@mail.com" required>
             </div>
             <div class="form-group">
                 <label for="text">Ваш отзыв:</label>

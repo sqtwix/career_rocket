@@ -6,6 +6,7 @@ from bottle import route, view, template, static_file, request, redirect, respon
 import json
 import os
 from datetime import datetime
+import re
 
 # consts
 FEEDBACK_FILE = 'data/feedback.json'
@@ -105,7 +106,8 @@ def feedback_get():
         'reviews': reviews,
         'author': '',
         'text': '',
-        'error': None,
+        'email': '',
+        'errors': [],
         'year': datetime.now().year
     }
 
@@ -113,28 +115,26 @@ def feedback_get():
 def feedback_post():
     author = request.forms.getunicode('author', '').strip()
     text = request.forms.getunicode('text', '').strip()
+    email = request.forms.getunicode('email', '').strip()
     
-    errors = []
-    if not author or len(author) < 2:
-        errors.append('Имя автора должно содержать не менее 2 символов')
-    if not text or len(text) < 5:
-        errors.append('Текст отзыва должен содержать не менее 5 символов')
+    errors = getErrorList(author, text, email)
     
     if errors:
         reviews = load_feedback()
         reviews.sort(key=lambda x: x['date'], reverse=True)
-        # Рендерим шаблон явно, а не возвращаем словарь
         return template('feedback', 
                         reviews=reviews,
                         author=author,
                         text=text,
-                        error='; '.join(errors),
+                        email=email,
+                        errors=errors,   # ← список ошибок, а не строка
                         year=datetime.now().year)
     
     # Всё валидно – сохраняем
     new_review = {
         'author': author,
         'text': text,
+        'email': email,
         'date': datetime.now().isoformat()
     }
     reviews = load_feedback()
@@ -143,3 +143,41 @@ def feedback_post():
     
     # Редирект для очистки формы
     return redirect('/feedback')
+
+def getErrorList(author, text, email):
+    """
+    Вынесенная функция на валидацию данных, которая заносит ошибки в error list
+    """
+    errors = []
+
+    if not author or len(author) < 2:
+        errors.append('Имя автора должно содержать не менее 2 символов')
+
+    if not text or len(text) < 5:
+        errors.append('Текст отзыва должен содержать не менее 5 символов')
+
+    if text.replace(' ', '').isdigit():
+        errors.append("Вопрос не может состоять только из цифр.")
+
+    if not is_valid_by_regular(email):
+        errors.append("Почта не соотвествует паттерну! (Пример: bob123@mail.com).")
+    elif not is_valid_domain(email):
+        errors.append("Невалидный домен. Он должен быть из списка: ru, com, net, org, edu, gov, mil, info, biz, site, tech, io, uk, de, fr, jp, cn")
+
+    return errors
+
+def is_valid_by_regular(email):
+    """
+    Вынесененная проверка почты на соотвесткие регулярному выражению
+    """
+    email_pattern = r'^[a-zA-Z0-9][a-zA-Z0-9._%+-]{0,62}@[a-zA-Z0-9][a-zA-Z0-9-]{1,62}\.[a-zA-Z]{2,}$'
+    return bool(re.match(email_pattern, email))
+
+# Дополнительная функция для проверки валидности домена
+def is_valid_domain(email):
+    domain_zone = email.split('.')[-1].lower()
+        
+    allowed_domains = ['ru', 'com', 'net', 'org', 'edu', 'gov', 'mil', 'info', 
+                          'biz', 'site', 'tech', 'io', 'uk', 'de', 'fr', 'jp', 'cn']
+        
+    return domain_zone in allowed_domains
