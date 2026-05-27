@@ -18,7 +18,7 @@
     <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
     <Name>Carrer_Rocket</Name>
     <RootNamespace>Carrer_Rocket</RootNamespace>
-    <InterpreterId>MSBuild|Carrer_Rocket|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|Carrer|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +30,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.py" />
+    <Compile Include="date_test.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="routes.py" />
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +73,7 @@
     <Content Include="views\contact.tpl" />
     <Content Include="views\index.tpl" />
     <Content Include="views\layout.tpl" />
+    <Content Include="views\news.tpl" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="Carrer\">
@@ -85,6 +89,7 @@
       <Id>Carrer_Rocket</Id>
       <Version>3.12</Version>
       <Description>Carrer_Rocket (Python 3.12 (64-bit))</Description>
+    </Interpreter>
     <Interpreter Include="env\">
       <Id>env</Id>
       <Version>3.13</Version>
