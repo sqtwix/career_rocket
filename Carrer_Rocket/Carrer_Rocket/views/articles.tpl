@@ -1,6 +1,7 @@
 % rebase('layout.tpl', title='Статьи', year=2026)
 
 <link rel="stylesheet" href="/static/content/articles.css">
+<script src="/static/scripts/article_modal.js"></script>
 
 <div class="page-header">
     <h1>Статьи и публикации</h1>
@@ -84,7 +85,7 @@
         % if not articles:
             <div class="no-articles">
                 <p>Статей пока нет</p>
-                <p>Будьте первым, кто опубликует статью!</p>
+                <p>Будьте первым кто опубликует статью</p>
             </div>
         % else:
             % for article in articles:
@@ -100,11 +101,28 @@
                         <p class="article-description">{{article.description}}</p>
                         <div class="article-divider"></div>
                         <div class="article-text">
-                            <p>{{article.text}}</p>
+                            <p>{{article.text[:300]}}...</p>
                         </div>
+                        <button class="btn-read-more" onclick="openModal('{{!article.header}}', '{{!article.author}}', '{{article.postDate}}', `{{!article.text.replace('`', '\\`').replace('$', '\\$')}}`)">Читать полностью</button>
                     </div>
                 </div>
             % end
         % end
+    </div>
+</div>
+
+<div id="articleModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modalTitle"></h2>
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div class="modal-meta">
+                <span class="modal-author" id="modalAuthor"></span>
+                <span class="modal-date" id="modalDate"></span>
+            </div>
+            <div class="modal-text" id="modalText"></div>
+        </div>
     </div>
 </div>
