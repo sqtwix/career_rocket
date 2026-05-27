@@ -32,10 +32,36 @@ class ArticleService:
         return articles
     
     @staticmethod
+    def get_all_articles_by_date(postDate: str) -> list[ArticleModel]:
+        articles = []
+        try:
+            datetime.strptime(postDate, '%Y-%m-%d')
+        except ValueError:
+            raise ValueError(f"Неверный формат даты: {postDate}")
+        
+        with open(ArticleService.DATA_FILE, 'r', encoding='utf-8') as f:
+            loaded = json.loads(f.read())
+            for article in loaded.get('articles', []):
+                if article['postDate'] == postDate:
+                    articles.append(
+                        ArticleModel(
+                            article['header'],
+                            article['description'],
+                            article['author'],
+                            article['postDate'],
+                            article['text']
+                        )
+                    )
+        return articles
+    
+    @staticmethod
     def get_all_articles_by_interval(startDate: str, endDate: str) -> list[ArticleModel]:
         articles = []
-        start = datetime.strptime(startDate, '%Y-%m-%d').date()
-        end = datetime.strptime(endDate, '%Y-%m-%d').date()
+        try:
+            start = datetime.strptime(startDate, '%Y-%m-%d').date()
+            end = datetime.strptime(endDate, '%Y-%m-%d').date()
+        except ValueError as e:
+            raise ValueError(f"Неверный формат даты: {e}")
         
         with open(ArticleService.DATA_FILE, 'r', encoding='utf-8') as f:
             loaded = json.loads(f.read())
