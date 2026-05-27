@@ -26,6 +26,10 @@
                 <input type="text" id="email" name="email" value="{{email}}" placeholder="example@mail.com" required>
             </div>
             <div class="form-group">
+                <label for="title">Заголовок отзыва:</label>
+                <input type="text" id="title" name="title" value="{{title}}" placeholder="Коротко о сути" required>
+            </div>
+            <div class="form-group">
                 <label for="text">Ваш отзыв:</label>
                 <textarea id="text" name="text" rows="5" placeholder="Поделитесь впечатлениями..." required>{{text}}</textarea>
             </div>
@@ -45,6 +49,11 @@
                     <strong class="review-author">{{rev['author']}}</strong>
                     <span class="review-date">{{rev['date'][:10]}}</span>
                 </div>
+                % if rev.get('title'):
+                <div class="review-title" style="font-size: 1.2rem; font-weight: bold; margin: 8px 0; color: var(--dark-blue);">
+                    {{rev['title']}}
+                </div>
+                % end
                 <div class="review-text">
                     {{!rev['text'].replace('\n', '<br>')}}
                 </div>
