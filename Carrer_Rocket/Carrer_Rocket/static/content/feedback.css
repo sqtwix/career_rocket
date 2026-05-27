@@ -2,18 +2,19 @@
 
 .form-group {
     margin-bottom: 20px;
+    text-align: center;
 }
 .form-group label {
     display: block;
     font-weight: 600;
     margin-bottom: 8px;
     color: var(--dark-blue);
-    font-size: 1.6rem;  
+    font-size: 1.8rem;
 }
 
 .form-group input,
 .form-group textarea {
-    width: 100%;
+    width: 50%;
     padding: 10px 12px;
     border: 1px solid var(--light-orange);
     border-radius: 8px;
@@ -33,12 +34,14 @@ textarea {
     background: linear-gradient(135deg, var(--orange), var(--light-orange));
     border: none;
     padding: 12px 28px;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 600;
     border-radius: 40px;
     color: white;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
+    display: block;
+    margin: 0 auto;
 }
 .btn-submit:hover {
     transform: translateY(-2px);
@@ -46,7 +49,7 @@ textarea {
 }
 .alert-error {
     background: #f8d7da;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: #721c24;
     padding: 12px;
     border-radius: 8px;
@@ -83,16 +86,16 @@ textarea {
     font-weight: 700;
 }
 .review-date {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     color: #888;
 }
 .review-text {
     color: #333;
-    line-height: 1.6;
+    line-height: 1.8;
     font-size: 1.4rem;
 }
 .review-title {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 600;
     margin: 8px 0;
     color: var(--dark-blue);
@@ -107,10 +110,11 @@ textarea {
 .window h2 {
     font-size: 2.3rem;
     margin-bottom: 1.2rem;
+    text-align: center;
 }
 .page-header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2.2rem;
 }
 .page-header h1 {
     font-size: 2.6rem;
