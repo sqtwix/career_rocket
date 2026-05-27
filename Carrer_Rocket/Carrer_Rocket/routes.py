@@ -66,6 +66,15 @@ def offer_store():
         hh_link=hh_link
     )
 
+@route('/news')
+@view('news')
+def news():
+    return dict(
+        title='News',
+        message="Статьи",
+        year=datetime.now().year,
+    )
+
 @route('/static/<filepath:path>')
 def serve_static(filepath):
     return static_file(filepath, root='./static')
@@ -73,3 +82,4 @@ def serve_static(filepath):
 @route('/data/<filename>')
 def serve_data(filename):
     return static_file(filename, root='./data')
+
