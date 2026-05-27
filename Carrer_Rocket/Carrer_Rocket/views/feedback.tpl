@@ -1,15 +1,15 @@
 % rebase('layout.tpl', title='Отзывы о продукте', year=year)
 
-<div class="container">
-    <div class="page-header">
+<container class="container">
+    <header class="page-header">
         <h1>Отзывы наших клиентов</h1>
-    </div>
+    </header>
 
-    <div class="window">
+    <section class="window">
         <h2>Оставить отзыв</h2>
         % if errors:
         <div class="alert alert-error">
-            <ul style="margin: 0; padding-left: 20px;">
+            <ul>
                 % for err in errors:
                 <li>{{!err}}</li>
                 % end
@@ -17,49 +17,52 @@
         </div>
         % end
         <form action="/feedback" method="post">
-            <div class="form-group">
-                <label for="author">Ваше имя:</label>
-                <input type="text" id="author" name="author" value="{{author}}" placeholder="Иван Петров" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Ваш email:</label>
-                <input type="text" id="email" name="email" value="{{email}}" placeholder="example@mail.com" required>
-            </div>
-            <div class="form-group">
-                <label for="title">Заголовок отзыва:</label>
-                <input type="text" id="title" name="title" value="{{title}}" placeholder="Коротко о сути" required>
-            </div>
-            <div class="form-group">
-                <label for="text">Ваш отзыв:</label>
-                <textarea id="text" name="text" rows="5" placeholder="Поделитесь впечатлениями..." required>{{text}}</textarea>
-            </div>
-            <button type="submit" class="btn-submit">Разместить</button>
+            <fieldset>
+                <div class="form-group">
+                    <label for="author">Ваше имя:</label>
+                    <input type="text" id="author" name="author" value="{{author}}" placeholder="Иван Петров" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Ваш email:</label>
+                    <input type="email" id="email" name="email" value="{{email}}" placeholder="example@mail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="title">Заголовок отзыва:</label>
+                    <input type="text" id="title" name="title" value="{{title}}" placeholder="Коротко о сути" required>
+                </div>
+                <div class="form-group">
+                    <label for="text">Ваш отзыв:</label>
+                    <textarea id="text" name="text" rows="5" placeholder="Поделитесь впечатлениями..." required>{{text}}</textarea>
+                </div>
+                <button type="submit" class="btn-submit">Разместить</button>
+            </fieldset>
         </form>
-    </div>
+    </section>
 
-    <div class="window">
+    <section class="window">
         <h2>Что говорят клиенты</h2>
         % if not reviews:
         <p style="text-align: center; color: #888;">Пока нет отзывов. Станьте первым!</p>
         % else:
         <div class="reviews-list">
             % for rev in reviews:
-            <div class="review-card">
+            <article class="review-card">
                 <div class="review-header">
                     <strong class="review-author">{{rev['author']}}</strong>
-                    <span class="review-date">{{rev['date'][:10]}}</span>
+                    <time class="review-date" datetime="{{rev['date']}}">{{rev['date'][:10]}}</time>
                 </div>
-                % if rev.get('title'):
-                <div class="review-title" style="font-size: 1.2rem; font-weight: bold; margin: 8px 0; color: var(--dark-blue);">
-                    {{rev['title']}}
-                </div>
+                % if rev.get('email'):
+                <address class="review-email">{{rev['email']}}</address>
                 % end
-                <div class="review-text">
+                % if rev.get('title'):
+                <h3 class="review-title">{{rev['title']}}</h3>
+                % end
+                <p class="review-text">
                     {{!rev['text'].replace('\n', '<br>')}}
-                </div>
-            </div>
+                </p>
+            </article>
             % end
         </div>
         % end
-    </div>
-</div>
+    </section>
+</container>

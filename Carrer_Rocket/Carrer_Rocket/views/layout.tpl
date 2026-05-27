@@ -6,6 +6,7 @@
     <title>{{ title }} - Career Rocket</title>
     <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/static/content/mainpage.css" />
+    <link rel="stylesheet" type="text/css" href="/static/content/feedback.css" />
     <script src="/static/scripts/modernizr-2.6.2.js"></script>
 </head>
 
