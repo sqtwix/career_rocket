@@ -16,7 +16,7 @@ def load_news():
 def save_news(news_list):
     """Сохраняет список новинок в JSON файл."""
     with open(NEWS_FILE, 'w', encoding='utf-8') as f: 
-        json.dump(news_list, f, ensure_ascii=False, indent=2)
+        json.dump(news_list, f, ensure_ascii=False, indent=4)
 
 def get_sorted_news():
     """Возвращает отсортированный список новинок (новые сверху)."""
@@ -72,10 +72,10 @@ def get_page_data():
     }
 
 def process_news_form(request, current_year):
-    title = request.forms.get('title', '')
-    category = request.forms.get('category', '')
-    description = request.forms.get('description', '')
-    date = request.forms.get('date', '')
+    title = request.forms.getunicode('title', '')
+    category = request.forms.getunicode('category', '')
+    description = request.forms.getunicode('description', '')
+    date = request.forms.getunicode('date', '')
 
     errors, title,category, description, date = validate_news_data(title, category, description, date)
 

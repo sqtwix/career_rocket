@@ -26,6 +26,7 @@
 <div class="jumbotronhome empty-news">
     <p>Пока нет добавленных новинок. Будьте первым!</p>
 </div>
+% end
 
 <!-- Форма добавления новой новинки -->
 <div class="jumbotronhome form-wrapper">
@@ -35,7 +36,7 @@
             {{!error}}
         </div>
     % end
-    <form action="/news" method="post" novalidate>
+    <form action="/news" method="post" novalidate accept-charset="UTF-8">
     <div class="form-group">
         <input type="text" name="title" placeholder="Название" value="{{form_data.get('title', '')}}" class="search-input">
     </div>
