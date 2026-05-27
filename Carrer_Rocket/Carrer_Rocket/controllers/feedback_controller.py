@@ -31,6 +31,10 @@ def is_valid_domain(email):
 
 def getErrorList(author, title, text, email):
     errors = []
+    author = author.strip()
+    title = title.strip()
+    text = text.strip()
+    
     if not author or len(author) < 2:
         errors.append('Имя автора должно содержать не менее 2 символов')
     if not title or len(title) < 3:
