@@ -1,3 +1,3 @@
-from controllers.news_controller import NewsController
+from controllers.articles_controller import ArticlesController
 
 __all__ = ['NewsController']

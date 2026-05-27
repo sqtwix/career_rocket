@@ -2,9 +2,11 @@
 Routes and views for the bottle application.
 """
 
-from bottle import route, view, template, static_file  
+from bottle import route, view, static_file  
 import json
 from datetime import datetime
+from controllers.articles_controller import ArticlesController
+
 
 @route('/')
 @route('/home')
@@ -14,6 +16,7 @@ def home():
     return dict(
         year=datetime.now().year
     )
+
 
 @route('/contact')
 @view('contact')
@@ -25,6 +28,7 @@ def contact():
         year=datetime.now().year
     )
 
+
 @route('/about')
 @view('about')
 def about():
@@ -35,11 +39,11 @@ def about():
         year=datetime.now().year
     )
 
+
 @route('/analytics')
 @view('analytics')
 def analytics():
-
-    # Загрузка данных из json
+    """Renders the analytics page."""
     with open('data/categories.json', 'r', encoding='cp1251') as f:
         categories_data = json.load(f)
 
@@ -47,12 +51,13 @@ def analytics():
         salaries_data = json.load(f)
 
     return dict(
-        title = 'Analytic',
+        title='Analytic',
         message='Аналитка рынка.',
         categories=json.dumps(categories_data, ensure_ascii=False),
         salaries=json.dumps(salaries_data, ensure_ascii=False),
         year=2026
-        )
+    )
+
 
 @route('/offer_store')
 @view('offer_store')
@@ -66,20 +71,23 @@ def offer_store():
         hh_link=hh_link
     )
 
-@route('/news')
-@view('news')
-def news():
+
+@route('/articles')
+@view('articles')
+def articles():
+    articles_list = ArticlesController.get_all_articles()
     return dict(
-        title='News',
-        message="Статьи",
+        title='Статьи',
         year=datetime.now().year,
+        articles=articles_list
     )
+
 
 @route('/static/<filepath:path>')
 def serve_static(filepath):
     return static_file(filepath, root='./static')
 
+
 @route('/data/<filename>')
 def serve_data(filename):
     return static_file(filename, root='./data')
-
