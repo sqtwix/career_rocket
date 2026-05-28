@@ -33,8 +33,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.py" />
+    <Compile Include="controllers\feedback_controller.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="controllers\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="routes.py" />
     <Compile Include="tests\test_news.py">
+    <Compile Include="tests\test_feedback.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="tests\__init__.py">
@@ -42,6 +49,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="data\" />
+    <Folder Include="controllers\" />
     <Folder Include="tests\" />
     <Folder Include="static\" />
     <Folder Include="static\content\" />
@@ -51,9 +60,16 @@
     <Folder Include="views\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\categories.json" />
+    <Content Include="data\feedback.json" />
+    <Content Include="data\salaries.json" />
     <Content Include="requirements.txt" />
+    <Content Include="static\content\analytics.css" />
     <Content Include="static\content\bootstrap.css" />
     <Content Include="static\content\bootstrap.min.css" />
+    <Content Include="static\content\feedback.css">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="static\content\mainpage.css" />
     <Content Include="static\content\site.css" />
     <Content Include="static\fonts\glyphicons-halflings-regular.eot" />
@@ -61,6 +77,7 @@
     <Content Include="static\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="static\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="static\images\rocket.png" />
+    <Content Include="static\scripts\analytics.js" />
     <Content Include="static\scripts\bootstrap.js" />
     <Content Include="static\scripts\bootstrap.min.js" />
     <Content Include="static\scripts\jquery-1.10.2.intellisense.js" />
@@ -77,7 +94,9 @@
     <Content Include="static\scripts\respond.min.js" />
     <Content Include="static\scripts\_references.js" />
     <Content Include="views\about.tpl" />
+    <Content Include="views\analytics.tpl" />
     <Content Include="views\contact.tpl" />
+    <Content Include="views\feedback.tpl" />
     <Content Include="views\index.tpl" />
     <Content Include="views\layout.tpl" />
     <Content Include="views\news.tpl" />

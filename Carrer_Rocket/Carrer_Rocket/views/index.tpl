@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="/static/content/mainpage.css">
 
 <div class="jumbotronhome">
-    <img src="static/images/rocket.png" width="200" height="150">
+    <img src="static/images/rocket.png" width="300" height="150">
     <p class="lead">Career Rocket помогает находить работу и стажировку в сфере IT.</p>
     <p><a href="https://tgaijobs.ru/vacancies?title=python" class="btnhome btn-primary">Learn more &raquo;</a></p>
 </div>

@@ -1,0 +1,44 @@
+{
+  "categories": [
+    {
+      "name": "Системное программирование",
+      "count": 234
+    },
+    {
+      "name": "ML",
+      "count": 456
+    },
+    {
+      "name": "Web-backend",
+      "count": 789
+    },
+    {
+      "name": "Web-frontend",
+      "count": 654
+    },
+    {
+      "name": "Android dev",
+      "count": 321
+    },
+    {
+      "name": "iOS dev",
+      "count": 287
+    },
+    {
+      "name": "DevOps",
+      "count": 432
+    },
+    {
+      "name": "Data Science",
+      "count": 345
+    },
+    {
+      "name": "Дизайнер",
+      "count": 234
+    },
+    {
+      "name": "Системный аналитик",
+      "count": 198
+    }
+  ]
+}

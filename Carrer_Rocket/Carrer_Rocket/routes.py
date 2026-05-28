@@ -1,4 +1,4 @@
-"""
+﻿"""
 Routes and views for the bottle application.
 """
 
@@ -10,30 +10,37 @@ import newsform
 
 @route('/')
 @route('/home')
-@view('index')
 def home():
-    """Renders the home page."""
-    return dict(
-        year=datetime.now().year
-    )
+    from bottle import template
+    return template('index', year=datetime.now().year)
+
 
 @route('/contact')
-@view('contact')
 def contact():
-    """Renders the contact page."""
-    return dict(
-        title='Contact',
-        message='Your contact page.',
-        year=datetime.now().year
-    )
+    from bottle import template
+    return template('contact', title='Contact', message='Your contact page.', year=datetime.now().year)
+
 
 @route('/about')
-@view('about')
 def about():
-    """Renders the about page."""
+    from bottle import template
+    return template('about', title='About', message='Your application description page.', year=datetime.now().year)
+
+
+@route('/analytics')
+def analytics():
+    from bottle import template
+    with open('data/categories.json', 'r', encoding='cp1251') as f:
+        categories_data = json.load(f)
+    with open('data/salaries.json', 'r', encoding='cp1251') as f:
+        salaries_data = json.load(f)
+    return template('analytics', title='Analytic', message='Аналитка рынка.', categories=json.dumps(categories_data, ensure_ascii=False), salaries=json.dumps(salaries_data, ensure_ascii=False), year=2026)
+
     return dict(
-        title='About',
-        message='Your application description page.',
+        title = 'Analytic',
+        message='Аналитка рынка.',
+        categories=json.dumps(categories_data, ensure_ascii=False),
+        salaries=json.dumps(salaries_data, ensure_ascii=False),
         year=datetime.now().year
     )
 
