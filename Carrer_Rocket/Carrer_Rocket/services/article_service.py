@@ -93,6 +93,9 @@ class ArticleService:
                 if content:
                     loaded = json.loads(content)
                     existing = loaded.get('articles', [])
+                    for article in existing:
+                        if article['header'] == form_data['header']:
+                            raise Exception
         
         new_article = {
             'header': form_data['header'],

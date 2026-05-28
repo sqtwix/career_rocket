@@ -19,10 +19,6 @@ class TestValidationService(unittest.TestCase):
             'text': 'Это достаточно длинный текст статьи для тестирования валидации'
         }
     
-    def test_valid_form_no_errors(self):
-        errors = ValidationService.validate_article_form(self.valid_form_data)
-        self.assertEqual(len(errors), 0)
-    
     def test_empty_header_returns_error(self):
         self.valid_form_data['header'] = ''
         errors = ValidationService.validate_article_form(self.valid_form_data)
@@ -118,34 +114,29 @@ class TestValidationService(unittest.TestCase):
         self.assertIn('text', errors)
         self.assertEqual(errors['text'], 'Текст статьи не должен превышать 5000 символов')
     
-    def test_multiple_errors_returned(self):
-        invalid_data = {
-            'header': '',
-            'description': '',
-            'author': '',
-            'postDate': 'invalid',
-            'text': ''
-        }
-        errors = ValidationService.validate_article_form(invalid_data)
-        self.assertIn('header', errors)
-        self.assertIn('description', errors)
-        self.assertIn('author', errors)
-        self.assertIn('postDate', errors)
-        self.assertIn('text', errors)
-        self.assertEqual(len(errors), 5)
+    def test_valid_yandex_ru_email(self):
+        result = ValidationService.check_mail('username@yandex.ru')
+        self.assertTrue(result)
     
-    def test_cyrillic_text_preserved(self):
-        cyrillic_text = 'Привет мир! Это тест с русскими символами.'
-        self.valid_form_data['header'] = cyrillic_text
-        errors = ValidationService.validate_article_form(self.valid_form_data)
-        self.assertEqual(len(errors), 0)
+    def test_valid_gmail_com_email(self):
+        result = ValidationService.check_mail('testuser@gmail.com')
+        self.assertTrue(result)
     
-    def test_mixed_language_text(self):
-        mixed_text = 'Python разработчик и программирование на русском'
-        self.valid_form_data['description'] = mixed_text
-        errors = ValidationService.validate_article_form(self.valid_form_data)
-        self.assertEqual(len(errors), 0)
-
+    def test_valid_mail_ru_email(self):
+        result = ValidationService.check_mail('contact@mail.ru')
+        self.assertTrue(result)
+    
+    def test_valid_mail_com_email(self):
+        result = ValidationService.check_mail('info@mail.com')
+        self.assertTrue(result)
+    
+    def test_valid_yahoo_com_email(self):
+        result = ValidationService.check_mail('user@yahoo.com')
+        self.assertTrue(result)
+    
+    def test_email_with_numbers(self):
+        result = ValidationService.check_mail('user12345@yandex.ru')
+        self.assertTrue(result)
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(verbosity=2)

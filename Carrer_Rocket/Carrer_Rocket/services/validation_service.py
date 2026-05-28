@@ -1,5 +1,8 @@
+# services/validation_service.py
 import re
 from datetime import datetime
+import json
+import os
 
 class ValidationError(Exception):
     def __init__(self, errors: dict):
@@ -7,7 +10,43 @@ class ValidationError(Exception):
         super().__init__(str(errors))
 
 class ValidationService:
+    DATA_FILE = "data/articles.json"
     
+    @staticmethod
+    def check_mail(mail : str) -> bool:
+        allowed_combinations = {
+            'yandex': ['ru'],
+            'gmail': ['com'],
+            'mail': ['ru', 'com'],
+            'yahoo' : ['com']
+        }
+
+        mail_pattern = r'^[a-zA-Z0-9x]{2,34}@[a-zA.-]+\.[a-zA-Z]{2,}$'
+
+        if not re.match(mail_pattern, mail): return False
+
+        local_part, domain_full = mail.split('@')
+        domain_parts = domain_full.split('.')
+
+        if domain_parts[0] not in allowed_combinations: return False
+        if domain_parts[1] not in allowed_combinations[domain_parts[0]]: return False
+        return True
+
+    @staticmethod
+    def is_unique_article(header: str, postDate: str) -> bool:
+        if not os.path.exists(ValidationService.DATA_FILE):
+            return True
+        
+        with open(ValidationService.DATA_FILE, 'r', encoding='utf-8') as f:
+            content = f.read()
+            if not content:
+                return True
+            loaded = json.loads(content)
+            for article in loaded.get('articles', []):
+                if article.get('header') == header and article.get('postDate') == postDate:
+                    return False
+        return True
+
     @staticmethod
     def validate_article_form(form_data: dict) -> dict:
         errors = {}
@@ -36,6 +75,10 @@ class ValidationService:
         elif len(author) > 100:
             errors['author'] = 'Имя автора не должно превышать 100 символов'
         
+        authorMail = form_data.get('authorMail', '')
+        if not ValidationService.check_mail(authorMail):
+            errors['authorMail'] = 'Адрес электронной почты не соотвествует шаблону'
+
         post_date = form_data.get('postDate', '')
         if not post_date:
             errors['postDate'] = 'Дата обязательна для заполнения'
@@ -58,5 +101,9 @@ class ValidationService:
             errors['text'] = 'Текст статьи должен содержать не менее 20 символов'
         elif len(text) > 5000:
             errors['text'] = 'Текст статьи не должен превышать 5000 символов'
+        
+        if not errors.get('header') and not errors.get('postDate'):
+            if not ValidationService.is_unique_article(header, post_date):
+                errors['header'] = 'Статья с таким заголовком и датой уже существует'
         
         return errors
