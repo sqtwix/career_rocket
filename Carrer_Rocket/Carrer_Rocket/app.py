@@ -3,6 +3,7 @@ This script runs the application using a development server.
 """
 
 import bottle
+from bottle import request
 bottle.TEMPLATES.clear() 
 
 import os
@@ -23,6 +24,7 @@ def wsgi_app():
     return bottle.default_app()
 
 if __name__ == '__main__':
+    request.forms.encoding = 'utf-8'
     PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
     STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static').replace('\\', '/')
     HOST = os.environ.get('SERVER_HOST', 'localhost')

@@ -2,7 +2,6 @@ from bottle import route, request, redirect, template, view
 from services.article_service import ArticleService
 from services.validation_service import ValidationError
 
-
 @route('/articles', method='GET')
 @view('articles')
 def articles_index():
@@ -90,11 +89,11 @@ def articles_by_interval():
 @route('/articles/add', method='POST')
 def articles_add():
     form_data = {
-        'header': request.forms.get('header', '').strip(),
-        'description': request.forms.get('description', '').strip(),
-        'author': request.forms.get('author', '').strip(),
-        'postDate': request.forms.get('postDate', '').strip(),
-        'text': request.forms.get('text', '').strip()
+        'header': request.forms.get('header', '').encode('latin1').decode('utf-8').strip(),
+        'description': request.forms.get('description', '').encode('latin1').decode('utf-8').strip(),
+        'author': request.forms.get('author', '').encode('latin1').decode('utf-8').strip(),
+        'postDate': request.forms.get('postDate', '').encode('latin1').decode('utf-8').strip(),
+        'text': request.forms.get('text', '').encode('latin1').decode('utf-8').strip()
     }
     
     try:
