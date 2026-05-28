@@ -3,6 +3,7 @@
 .form-group {
     margin-bottom: 20px;
     text-align: center;
+    color: var(--orange);
 }
 .form-group label {
     display: block;
@@ -14,14 +15,20 @@
 
 .form-group input,
 .form-group textarea {
-    width: 50%;
+    width: 60%;
+    height: 60px;
     padding: 10px 12px;
     border: 1px solid var(--light-orange);
-    border-radius: 8px;
-    font-size: 1.5rem;
+    border-radius: 10px;
+    font-size: 1.7rem;
     font-family: inherit;
     transition: 0.2s;
 }
+
+    .form-group textarea {
+        height: auto;
+        min-height: 120px;
+    }
 .form-group input:focus,
 .form-group textarea:focus {
     border-color: var(--orange);
@@ -62,7 +69,7 @@ textarea {
     gap: 28px;              /* оставили только одно значение */
 }
 .review-card {
-    background: #fef9f0;
+    background: #fffef7;
     border-radius: 16px;
     padding: 18px;
     border-left: 5px solid var(--orange);
@@ -101,7 +108,7 @@ textarea {
     color: var(--dark-blue);
 }
 .window {
-    background: white;
+    background: linear-gradient(135deg, var(--cream) 0%, #fff9e6 100%);
     border-radius: 20px;
     padding: 25px;
     margin-bottom: 30px;
