@@ -37,6 +37,8 @@ def articles_index():
 @route('/articles/date/<postDate>', method='GET')
 @view('articles')
 def articles_by_date(postDate):
+    scroll_to = request.query.get('scroll_to', '')
+    
     try:
         articles = ArticleService.get_all_articles_by_date(postDate)
     except ValueError:
@@ -50,7 +52,7 @@ def articles_by_date(postDate):
         form_data={},
         start_date=postDate,
         end_date=postDate,
-        scroll_to='',
+        scroll_to=scroll_to,
         title=f'Статьи за {postDate}',
         year=2026
     )
@@ -61,6 +63,7 @@ def articles_by_date(postDate):
 def articles_by_interval():
     start_date = request.query.get('start_date', '')
     end_date = request.query.get('end_date', '')
+    scroll_to = request.query.get('scroll_to', '')
     
     if not start_date or not end_date:
         redirect('/articles')
@@ -78,7 +81,7 @@ def articles_by_interval():
         form_data={},
         start_date=start_date,
         end_date=end_date,
-        scroll_to='',
+        scroll_to=scroll_to,
         title=f'Статьи с {start_date} по {end_date}',
         year=2026
     )
