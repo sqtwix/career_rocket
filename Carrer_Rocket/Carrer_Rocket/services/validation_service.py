@@ -7,7 +7,26 @@ class ValidationError(Exception):
         super().__init__(str(errors))
 
 class ValidationService:
-    
+    @staticmethod
+    def check_mail(mail : str) -> bool:
+        allowed_combinations = {
+            'yandex': ['ru'],
+            'gmail': ['com'],
+            'mail': ['ru', 'com'],
+            'yahoo' : ['com']
+        }
+
+        mail_pattern = r'^[a-zA-Z0-9x]{2,34}@[a-zA.-]+\.[a-zA-Z]{2,}$'
+
+        if not re.match(mail_pattern, mail): return False
+
+        local_part, domain_full = mail.split('@')
+        domain_parts = domain_full.split('.')
+
+        if domain_parts[0] not in allowed_combinations: return False
+        if domain_parts[1] not in allowed_combinations[domain_parts[0]]: return False
+        return True
+
     @staticmethod
     def validate_article_form(form_data: dict) -> dict:
         errors = {}
@@ -36,6 +55,10 @@ class ValidationService:
         elif len(author) > 100:
             errors['author'] = 'Имя автора не должно превышать 100 символов'
         
+        authorMail = form_data.get('authorMail', '')
+        if not ValidationService.check_mail(authorMail):
+            errors['authorMail'] = 'Адрес электронной почты не соотвествует шаблону'
+
         post_date = form_data.get('postDate', '')
         if not post_date:
             errors['postDate'] = 'Дата обязательна для заполнения'

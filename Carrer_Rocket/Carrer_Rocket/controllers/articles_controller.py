@@ -92,6 +92,7 @@ def articles_add():
         'header': request.forms.get('header', '').encode('latin1').decode('utf-8').strip(),
         'description': request.forms.get('description', '').encode('latin1').decode('utf-8').strip(),
         'author': request.forms.get('author', '').encode('latin1').decode('utf-8').strip(),
+        'authorMail': request.forms.get('authorMail', '').encode('latin1').decode('utf-8').strip(),
         'postDate': request.forms.get('postDate', '').encode('latin1').decode('utf-8').strip(),
         'text': request.forms.get('text', '').encode('latin1').decode('utf-8').strip()
     }
