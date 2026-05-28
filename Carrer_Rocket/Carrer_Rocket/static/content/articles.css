@@ -67,10 +67,11 @@
     background: rgba(10, 25, 41, 0.8);
     border: 1px solid rgba(171, 224, 240, 0.3);
     border-radius: 8px;
-    padding: 10px 15px;
+    padding: 12px 15px;
     color: white;
     font-size: 14px;
     font-family: Arial, sans-serif;
+    width: 200px;
 }
 
 .filter-input:focus {
@@ -79,7 +80,7 @@
 }
 
 .btn-filter, .btn-reset {
-    padding: 10px 25px;
+    padding: 12px 25px;
     border-radius: 8px;
     font-size: 14px;
     font-weight: bold;
@@ -118,13 +119,13 @@
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(171, 224, 240, 0.15);
     border-radius: 16px;
-    padding: 25px;
+    padding: 30px;
     margin-bottom: 40px;
 }
 
 .add-article-section h2 {
     color: #E2852E;
-    font-size: 24px;
+    font-size: 28px;
     margin-bottom: 25px;
     font-family: Arial, sans-serif;
 }
@@ -138,25 +139,43 @@
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 }
 
 .form-group label {
     color: #ABE0F0;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     font-family: Arial, sans-serif;
 }
 
-.form-input, .form-textarea {
+.form-input {
     background: rgba(10, 25, 41, 0.8);
     border: 1px solid rgba(171, 224, 240, 0.3);
     border-radius: 8px;
-    padding: 12px 15px;
+    padding: 14px 18px;
     color: white;
-    font-size: 14px;
+    font-size: 16px;
     font-family: Arial, sans-serif;
     transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-textarea {
+    background: rgba(10, 25, 41, 0.8);
+    border: 1px solid rgba(171, 224, 240, 0.3);
+    border-radius: 8px;
+    padding: 14px 18px;
+    color: white;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
+    max-height: 300px;
+    min-height: 100px;
 }
 
 .form-input:focus, .form-textarea:focus {
@@ -165,13 +184,9 @@
     background: rgba(10, 25, 41, 1);
 }
 
-.form-textarea {
-    resize: vertical;
-}
-
 .error-message {
     color: #ff6b6b;
-    font-size: 12px;
+    font-size: 13px;
     font-family: Arial, sans-serif;
 }
 
@@ -179,14 +194,16 @@
     background: #E2852E;
     border: 2px solid #E2852E;
     border-radius: 8px;
-    padding: 12px 25px;
+    padding: 14px 30px;
     color: #0A1929;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: Arial, sans-serif;
     margin-top: 10px;
+    width: 100%;
+    max-width: 300px;
 }
 
 .btn-submit:hover {
@@ -197,7 +214,7 @@
 
 .articles-list h2 {
     color: #E2852E;
-    font-size: 24px;
+    font-size: 28px;
     margin-bottom: 25px;
     font-family: Arial, sans-serif;
 }
@@ -211,7 +228,7 @@
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(171, 224, 240, 0.15);
     border-radius: 16px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     overflow: hidden;
     transition: all 0.3s ease;
     opacity: 0;
@@ -244,13 +261,13 @@
 }
 
 .article-card-header {
-    padding: 25px 25px 15px 25px;
+    padding: 25px 30px 15px 30px;
     border-bottom: 1px solid rgba(171, 224, 240, 0.1);
 }
 
 .article-title {
     color: white;
-    font-size: 22px;
+    font-size: 24px;
     margin-bottom: 15px;
     font-family: Arial, sans-serif;
 }
@@ -258,7 +275,7 @@
 .article-meta {
     display: flex;
     gap: 20px;
-    font-size: 13px;
+    font-size: 14px;
     font-family: Arial, sans-serif;
     margin-bottom: 15px;
 }
@@ -280,13 +297,13 @@
 }
 
 .article-card-body {
-    padding: 20px 25px 25px 25px;
+    padding: 20px 30px 25px 30px;
 }
 
 .article-description {
     color: #ABE0F0;
-    font-size: 15px;
-    line-height: 1.5;
+    font-size: 16px;
+    line-height: 1.6;
     margin-bottom: 15px;
     font-family: Arial, sans-serif;
     font-style: italic;
@@ -300,10 +317,10 @@
 
 .article-text {
     color: white;
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 15px;
+    line-height: 1.7;
     font-family: Arial, sans-serif;
-    max-height: 100px;
+    max-height: 120px;
     overflow: hidden;
 }
 
@@ -311,9 +328,9 @@
     background: transparent;
     border: 1px solid #E2852E;
     border-radius: 8px;
-    padding: 8px 20px;
+    padding: 10px 25px;
     color: #E2852E;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -399,14 +416,14 @@
 
 .modal-header h2 {
     color: #E2852E;
-    font-size: 24px;
+    font-size: 26px;
     margin: 0;
     font-family: Arial, sans-serif;
 }
 
 .close-modal {
     color: #ABE0F0;
-    font-size: 32px;
+    font-size: 36px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -432,7 +449,7 @@
 
 .modal-author {
     color: #ABE0F0;
-    font-size: 14px;
+    font-size: 15px;
     font-family: Arial, sans-serif;
 }
 
@@ -442,7 +459,7 @@
 
 .modal-date {
     color: #E2852E;
-    font-size: 14px;
+    font-size: 15px;
     font-family: Arial, sans-serif;
 }
 
@@ -471,12 +488,16 @@
         align-items: stretch;
     }
     
+    .filter-input {
+        width: 100%;
+    }
+    
     .btn-filter, .btn-reset {
         text-align: center;
     }
     
     .article-title {
-        font-size: 18px;
+        font-size: 20px;
     }
     
     .article-meta {
@@ -494,7 +515,7 @@
     }
     
     .modal-header h2 {
-        font-size: 18px;
+        font-size: 20px;
     }
     
     .modal-body {
@@ -504,29 +525,9 @@
     .modal-text {
         font-size: 14px;
     }
-}
-
-.article-card.highlight {
-    border-color: #E2852E;
-    box-shadow: 0 0 20px rgba(226, 133, 46, 0.5);
-    transition: all 0.3s ease;
-}
-
-@keyframes highlightPulse {
-    0% {
-        border-color: rgba(226, 133, 46, 0.3);
-        box-shadow: 0 0 0 0 rgba(226, 133, 46, 0.4);
+    
+    .btn-submit {
+        width: 100%;
+        max-width: none;
     }
-    50% {
-        border-color: #E2852E;
-        box-shadow: 0 0 20px 5px rgba(226, 133, 46, 0.6);
-    }
-    100% {
-        border-color: rgba(226, 133, 46, 0.3);
-        box-shadow: 0 0 0 0 rgba(226, 133, 46, 0);
-    }
-}
-
-.article-card.highlight {
-    animation: highlightPulse 1s ease;
 }
