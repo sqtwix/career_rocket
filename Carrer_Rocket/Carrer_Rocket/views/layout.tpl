@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/static/content/mainpage.css" />
     <link rel="stylesheet" type="text/css" href="/static/content/articles.css" />
+    <link rel="stylesheet" type="text/css" href="/static/content/feedback.css" />
     <script src="/static/scripts/modernizr-2.6.2.js"></script>
 </head>
 
@@ -18,10 +19,10 @@
       <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
               <li><a href="/home">Главная</a></li>
-              <li><a href="/about">О нас</a></li>
               <li><a href="/contact">Контакты</a></li>
               <li><a href="/analytics">Аналитика</a></li>
               <li><a href="/offer_store">Предложения</a></li>
+              <li><a href="/feedback">Отзывы</a></li>
               <li><a href="/articles">Статьи</a></li>
           </ul>
       </div>

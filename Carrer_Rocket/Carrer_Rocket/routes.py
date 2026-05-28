@@ -1,5 +1,10 @@
-﻿from bottle import route, static_file  
+﻿"""
+Routes and views for the bottle application.
+"""
+
+from bottle import route, view, template, static_file, request, redirect, response
 import json
+import os
 from datetime import datetime
 import controllers.articles_controller
 
@@ -32,6 +37,13 @@ def analytics():
         salaries_data = json.load(f)
     return template('analytics', title='Analytic', message='Аналитка рынка.', categories=json.dumps(categories_data, ensure_ascii=False), salaries=json.dumps(salaries_data, ensure_ascii=False), year=2026)
 
+    return dict(
+        title = 'Analytic',
+        message='Аналитка рынка.',
+        categories=json.dumps(categories_data, ensure_ascii=False),
+        salaries=json.dumps(salaries_data, ensure_ascii=False),
+        year=datetime.now().year
+        )
 
 @route('/offer_store')
 def offer_store():

@@ -19,6 +19,9 @@
     <Name>Carrer_Rocket</Name>
     <RootNamespace>Carrer_Rocket</RootNamespace>
     <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <TestFramework>unittest</TestFramework>
+    <UnitTestPattern>test*.py</UnitTestPattern>
+    <UnitTestRootDirectory>.</UnitTestRootDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,10 +33,24 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.py" />
+    <Compile Include="controllers\feedback_controller.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="controllers\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="routes.py" />
+    <Compile Include="tests\test_feedback.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tests\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="data\" />
+    <Folder Include="controllers\" />
+    <Folder Include="tests\" />
     <Folder Include="static\" />
     <Folder Include="static\content\" />
     <Folder Include="static\fonts\" />
@@ -43,11 +60,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\categories.json" />
+    <Content Include="data\feedback.json" />
     <Content Include="data\salaries.json" />
     <Content Include="requirements.txt" />
     <Content Include="static\content\analytics.css" />
     <Content Include="static\content\bootstrap.css" />
     <Content Include="static\content\bootstrap.min.css" />
+    <Content Include="static\content\feedback.css">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="static\content\mainpage.css" />
     <Content Include="static\content\site.css" />
     <Content Include="static\fonts\glyphicons-halflings-regular.eot" />
@@ -74,6 +95,7 @@
     <Content Include="views\about.tpl" />
     <Content Include="views\analytics.tpl" />
     <Content Include="views\contact.tpl" />
+    <Content Include="views\feedback.tpl" />
     <Content Include="views\index.tpl" />
     <Content Include="views\layout.tpl" />
   </ItemGroup>
@@ -82,6 +104,7 @@
       <Id>Carrer_Rocket</Id>
       <Version>3.12</Version>
       <Description>Carrer_Rocket (Python 3.12 (64-bit))</Description>
+    </Interpreter>
     <Interpreter Include="env\">
       <Id>env</Id>
       <Version>3.13</Version>
