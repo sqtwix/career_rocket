@@ -71,6 +71,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span class="error-message">{{errors['author']}}</span>
                 % end
             </div>
+
+            <div class="form-group">
+                <label for="authorMail">Адрес</label>
+                <input type="text" id="authorMail" name="authorMail"
+                    value="{{form_data.get('authorMail','')}}"
+                    placeholder="Адрес почты" class="form-input">
+                % if errors.get('authorMail'):
+                    <span class="error-message"> {{errors['author']}} </span>
+                %end
+            </div>
             
             <div class="form-group">
                 <label for="postDate">Дата публикации</label>

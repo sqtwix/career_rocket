@@ -25,6 +25,7 @@ class ArticleService:
                         article['header'],
                         article['description'],
                         article['author'],
+                        article['authorMail'],
                         article['postDate'],
                         article['text']
                     )
@@ -48,6 +49,7 @@ class ArticleService:
                             article['header'],
                             article['description'],
                             article['author'],
+                            article['authorMail'],
                             article['postDate'],
                             article['text']
                         )
@@ -73,6 +75,7 @@ class ArticleService:
                             article['header'],
                             article['description'],
                             article['author'],
+                            article['authorMail'],
                             article['postDate'],
                             article['text']
                         )
@@ -98,6 +101,7 @@ class ArticleService:
             'header': form_data['header'],
             'description': form_data['description'],
             'author': form_data['author'],
+            'authorMail': form_data['authorMail'],
             'postDate': form_data['postDate'],
             'text': form_data['text']
         }
