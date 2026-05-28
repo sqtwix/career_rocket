@@ -5,15 +5,13 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const scrollTo = '{{scroll_to}}';
-    if (scrollTo) {
-        setTimeout(function() {
-            if (scrollTo === 'articles_list') {
-                scrollToArticlesList();
-            } else {
-                scrollToArticle(scrollTo);
-            }
-        }, 100);
+    var scrollTo = '{{scroll_to}}';
+    if (scrollTo && scrollTo !== '') {
+        if (scrollTo === 'articles_list') {
+            scrollToArticlesList();
+        } else if (scrollTo.indexOf('article_') === 0) {
+            scrollToArticle(scrollTo);
+        }
     }
 });
 </script>
@@ -26,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="articles-container">
     <div class="filter-section">
         <h3>Фильтр по дате</h3>
-        <form action="/articles/filter" method="POST" class="filter-form">
+        <form action="/articles/filter" method="POST" class="filter-form" id="filterForm">
             <div class="filter-group">
                 <label for="start_date">Дата от:</label>
                 <input type="date" id="start_date" name="start_date" value="{{start_date}}" class="filter-input">
