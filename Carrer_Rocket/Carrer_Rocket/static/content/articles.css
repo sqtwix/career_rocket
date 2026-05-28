@@ -39,7 +39,7 @@
 
 .filter-section h3 {
     color: #E2852E;
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 20px;
     font-family: Arial, sans-serif;
 }
@@ -59,7 +59,7 @@
 
 .filter-group label {
     color: #ABE0F0;
-    font-size: 14px;
+    font-size: 16px;
     font-family: Arial, sans-serif;
 }
 
@@ -67,10 +67,11 @@
     background: rgba(10, 25, 41, 0.8);
     border: 1px solid rgba(171, 224, 240, 0.3);
     border-radius: 8px;
-    padding: 10px 15px;
+    padding: 14px 18px;
     color: white;
-    font-size: 14px;
+    font-size: 16px;
     font-family: Arial, sans-serif;
+    width: 240px;
 }
 
 .filter-input:focus {
@@ -79,9 +80,9 @@
 }
 
 .btn-filter, .btn-reset {
-    padding: 10px 25px;
+    padding: 14px 28px;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -118,100 +119,125 @@
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(171, 224, 240, 0.15);
     border-radius: 16px;
-    padding: 25px;
+    padding: 35px;
     margin-bottom: 40px;
 }
 
 .add-article-section h2 {
     color: #E2852E;
-    font-size: 24px;
-    margin-bottom: 25px;
+    font-size: 32px;
+    margin-bottom: 30px;
     font-family: Arial, sans-serif;
 }
 
 .article-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 28px;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
 }
 
 .form-group label {
     color: #ABE0F0;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 600;
     font-family: Arial, sans-serif;
 }
 
-.form-input, .form-textarea {
+.form-input {
     background: rgba(10, 25, 41, 0.8);
     border: 1px solid rgba(171, 224, 240, 0.3);
-    border-radius: 8px;
-    padding: 12px 15px;
+    border-radius: 10px;
+    padding: 16px 20px;
     color: white;
-    font-size: 14px;
+    font-size: 18px;
     font-family: Arial, sans-serif;
     transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-textarea {
+    background: rgba(10, 25, 41, 0.8);
+    border: 1px solid rgba(171, 224, 240, 0.3);
+    border-radius: 10px;
+    padding: 16px 20px;
+    color: white;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
+    max-height: 500px;
+    min-height: 180px;
+    line-height: 1.5;
 }
 
 .form-input:focus, .form-textarea:focus {
     outline: none;
     border-color: #E2852E;
     background: rgba(10, 25, 41, 1);
+    box-shadow: 0 0 8px rgba(226, 133, 46, 0.3);
 }
 
-.form-textarea {
-    resize: vertical;
+.form-input::placeholder, .form-textarea::placeholder {
+    color: rgba(171, 224, 240, 0.5);
+    font-size: 16px;
 }
 
 .error-message {
     color: #ff6b6b;
-    font-size: 12px;
+    font-size: 14px;
     font-family: Arial, sans-serif;
+    margin-top: 5px;
 }
 
 .btn-submit {
     background: #E2852E;
     border: 2px solid #E2852E;
-    border-radius: 8px;
-    padding: 12px 25px;
+    border-radius: 10px;
+    padding: 16px 32px;
     color: #0A1929;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: Arial, sans-serif;
-    margin-top: 10px;
+    margin-top: 15px;
+    width: 100%;
+    max-width: 350px;
 }
 
 .btn-submit:hover {
     background: transparent;
     color: #E2852E;
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(226, 133, 46, 0.2);
 }
 
 .articles-list h2 {
     color: #E2852E;
-    font-size: 24px;
-    margin-bottom: 25px;
+    font-size: 32px;
+    margin-bottom: 30px;
     font-family: Arial, sans-serif;
 }
 
 .articles-count {
     color: #ABE0F0;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .article-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(171, 224, 240, 0.15);
     border-radius: 16px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     overflow: hidden;
     transition: all 0.3s ease;
     opacity: 0;
@@ -244,21 +270,21 @@
 }
 
 .article-card-header {
-    padding: 25px 25px 15px 25px;
+    padding: 28px 32px 18px 32px;
     border-bottom: 1px solid rgba(171, 224, 240, 0.1);
 }
 
 .article-title {
     color: white;
-    font-size: 22px;
-    margin-bottom: 15px;
+    font-size: 26px;
+    margin-bottom: 18px;
     font-family: Arial, sans-serif;
 }
 
 .article-meta {
     display: flex;
-    gap: 20px;
-    font-size: 13px;
+    gap: 25px;
+    font-size: 16px;
     font-family: Arial, sans-serif;
     margin-bottom: 15px;
 }
@@ -280,14 +306,14 @@
 }
 
 .article-card-body {
-    padding: 20px 25px 25px 25px;
+    padding: 22px 32px 28px 32px;
 }
 
 .article-description {
     color: #ABE0F0;
-    font-size: 15px;
-    line-height: 1.5;
-    margin-bottom: 15px;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 18px;
     font-family: Arial, sans-serif;
     font-style: italic;
 }
@@ -295,15 +321,15 @@
 .article-divider {
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(171, 224, 240, 0.3), transparent);
-    margin: 15px 0;
+    margin: 18px 0;
 }
 
 .article-text {
     color: white;
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 16px;
+    line-height: 1.7;
     font-family: Arial, sans-serif;
-    max-height: 100px;
+    max-height: 120px;
     overflow: hidden;
 }
 
@@ -311,14 +337,14 @@
     background: transparent;
     border: 1px solid #E2852E;
     border-radius: 8px;
-    padding: 8px 20px;
+    padding: 12px 28px;
     color: #E2852E;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: Arial, sans-serif;
-    margin-top: 15px;
+    margin-top: 18px;
 }
 
 .btn-read-more:hover {
@@ -329,7 +355,7 @@
 
 .no-articles {
     text-align: center;
-    padding: 60px 20px;
+    padding: 70px 20px;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(171, 224, 240, 0.15);
     border-radius: 16px;
@@ -337,14 +363,14 @@
 
 .no-articles p {
     color: #ABE0F0;
-    font-size: 18px;
-    margin-bottom: 10px;
+    font-size: 20px;
+    margin-bottom: 12px;
     font-family: Arial, sans-serif;
 }
 
 .no-articles p:first-child {
     color: #E2852E;
-    font-size: 24px;
+    font-size: 28px;
 }
 
 .modal {
@@ -355,7 +381,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.85);
     animation: fadeIn 0.3s ease;
 }
 
@@ -390,7 +416,7 @@
 }
 
 .modal-header {
-    padding: 25px 30px;
+    padding: 28px 32px;
     border-bottom: 1px solid rgba(226, 133, 46, 0.3);
     display: flex;
     justify-content: space-between;
@@ -399,14 +425,14 @@
 
 .modal-header h2 {
     color: #E2852E;
-    font-size: 24px;
+    font-size: 28px;
     margin: 0;
     font-family: Arial, sans-serif;
 }
 
 .close-modal {
     color: #ABE0F0;
-    font-size: 32px;
+    font-size: 40px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -419,20 +445,20 @@
 }
 
 .modal-body {
-    padding: 30px;
+    padding: 32px;
 }
 
 .modal-meta {
     display: flex;
-    gap: 20px;
+    gap: 25px;
     margin-bottom: 25px;
-    padding-bottom: 15px;
+    padding-bottom: 18px;
     border-bottom: 1px solid rgba(171, 224, 240, 0.2);
 }
 
 .modal-author {
     color: #ABE0F0;
-    font-size: 14px;
+    font-size: 16px;
     font-family: Arial, sans-serif;
 }
 
@@ -442,7 +468,7 @@
 
 .modal-date {
     color: #E2852E;
-    font-size: 14px;
+    font-size: 16px;
     font-family: Arial, sans-serif;
 }
 
@@ -452,7 +478,7 @@
 
 .modal-text {
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.8;
     font-family: Arial, sans-serif;
 }
@@ -471,21 +497,42 @@
         align-items: stretch;
     }
     
+    .filter-input {
+        width: 100%;
+    }
+    
     .btn-filter, .btn-reset {
         text-align: center;
     }
     
     .article-title {
-        font-size: 18px;
+        font-size: 22px;
     }
     
     .article-meta {
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
     }
     
     .article-card-header, .article-card-body {
         padding: 20px;
+    }
+    
+    .add-article-section {
+        padding: 20px;
+    }
+    
+    .add-article-section h2 {
+        font-size: 24px;
+    }
+    
+    .form-group label {
+        font-size: 16px;
+    }
+    
+    .form-input, .form-textarea {
+        font-size: 16px;
+        padding: 14px 16px;
     }
     
     .modal-content {
@@ -494,7 +541,7 @@
     }
     
     .modal-header h2 {
-        font-size: 18px;
+        font-size: 20px;
     }
     
     .modal-body {
@@ -502,6 +549,11 @@
     }
     
     .modal-text {
-        font-size: 14px;
+        font-size: 16px;
+    }
+    
+    .btn-submit {
+        width: 100%;
+        max-width: none;
     }
 }
