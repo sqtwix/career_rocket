@@ -5,7 +5,7 @@
 <div class="jumbotronhome">
     <img src="static/images/rocket.png" width="300" height="150">
     <p class="lead">Career Rocket помогает находить работу и стажировку в сфере IT.</p>
-    <p><a href="http://bottlepy.org/docs/dev/index.html" class="btnhome btn-primary">Learn more &raquo;</a></p>
+    <p><a href="https://tgaijobs.ru/vacancies?title=python" class="btnhome btn-primary">Learn more &raquo;</a></p>
 </div>
 
 <div class="search">

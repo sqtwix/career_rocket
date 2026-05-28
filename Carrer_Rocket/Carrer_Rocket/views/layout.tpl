@@ -24,6 +24,7 @@
               <li><a href="/offer_store">Предложения</a></li>
               <li><a href="/feedback">Отзывы</a></li>
               <li><a href="/articles">Статьи</a></li>
+              <li><a href="/news">Новинки</a></li>
           </ul>
       </div>
     </div>

@@ -2,12 +2,11 @@
 Routes and views for the bottle application.
 """
 
-from bottle import route, view, template, static_file, request, redirect, response
+from bottle import route, view, template, request, redirect
+from datetime import datetime
 import json
 import os
-from datetime import datetime
-import controllers.articles_controller
-
+import newsform
 
 @route('/')
 @route('/home')
@@ -43,20 +42,39 @@ def analytics():
         categories=json.dumps(categories_data, ensure_ascii=False),
         salaries=json.dumps(salaries_data, ensure_ascii=False),
         year=datetime.now().year
+    )
+
+NEWS_FILE = 'news.json'
+
+@route('/news')
+def show_news():
+    """Отображает страницу со всеми новинками и формой."""
+    return template('news',
+        title='Актуальные новинки',
+        year=datetime.now().year,
+        news_list=newsform.get_sorted_news(),
+        error='',
+        form_data={}
+    )
+
+@route('/news', method='POST')
+def add_news():
+    """Обрабатывает добавление новой новинки."""
+    try:
+        result = newsform.process_news_form(request, datetime.now().year)
+    
+        # Если есть ошибки – показываем страницу с ними
+        if result is not None and result[0] == 'news':
+            return template(result[0], **result[1])
+    
+        # Если ошибок нет – редиректим
+        return redirect('/news')
+    except Exception as e:
+        print(f"Ошибка в add_news: {e}")
+        return template('news',
+            title='Актуальные новинки',
+            year=datetime.now().year,
+            news_list=newsform.get_sorted_news(),
+            error='',
+            form_data={}
         )
-
-@route('/offer_store')
-def offer_store():
-    from bottle import template
-    hh_link = "https://hh.ru/search/vacancy?area=113&professional_role=96&professional_role=104&professional_role=125&professional_role=126&text=IT"
-    return template('offer_store', title='Offer_store', message='Магазин предложений', year=datetime.now().year, hh_link=hh_link)
-
-
-@route('/static/<filepath:path>')
-def serve_static(filepath):
-    return static_file(filepath, root='./static')
-
-
-@route('/data/<filename>')
-def serve_data(filename):
-    return static_file(filename, root='./data')

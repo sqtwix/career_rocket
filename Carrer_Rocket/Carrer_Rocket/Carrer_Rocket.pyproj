@@ -18,7 +18,7 @@
     <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
     <Name>Carrer_Rocket</Name>
     <RootNamespace>Carrer_Rocket</RootNamespace>
-    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|Carrer|$(MSBuildProjectFullPath)</InterpreterId>
     <TestFramework>unittest</TestFramework>
     <UnitTestPattern>test*.py</UnitTestPattern>
     <UnitTestRootDirectory>.</UnitTestRootDirectory>
@@ -40,6 +40,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="routes.py" />
+    <Compile Include="tests\test_news.py">
     <Compile Include="tests\test_feedback.py">
       <SubType>Code</SubType>
     </Compile>
@@ -98,8 +99,18 @@
     <Content Include="views\feedback.tpl" />
     <Content Include="views\index.tpl" />
     <Content Include="views\layout.tpl" />
+    <Content Include="views\news.tpl" />
   </ItemGroup>
   <ItemGroup>
+    <Interpreter Include="Carrer\">
+      <Id>Carrer</Id>
+      <Version>3.12</Version>
+      <Description>Carrer (Python 3.12 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
     <Interpreter Include="Carrer_Rocket\">
       <Id>Carrer_Rocket</Id>
       <Version>3.12</Version>
