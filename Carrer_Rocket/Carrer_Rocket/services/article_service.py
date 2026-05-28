@@ -106,3 +106,5 @@ class ArticleService:
         
         with open(ArticleService.DATA_FILE, 'w', encoding='utf-8') as f:
             json.dump({"articles": existing}, f, ensure_ascii=False, indent=4)
+        
+        return new_article
