@@ -26,45 +26,49 @@ document.addEventListener('keydown', function(event) {
 });
 
 function scrollToArticle(articleId) {
-    const element = document.getElementById(articleId);
-    if (element) {
-        const offset = 80;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
-        
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-        });
-        
-        element.style.transition = 'all 0.3s ease';
-        element.style.borderColor = '#E2852E';
-        element.style.boxShadow = '0 0 20px rgba(226, 133, 46, 0.5)';
-        
-        setTimeout(() => {
-            element.style.borderColor = '';
-            element.style.boxShadow = '';
-        }, 2000);
-    }
+    setTimeout(function() {
+        const element = document.getElementById(articleId);
+        if (element) {
+            const offset = 80;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+            
+            element.style.transition = 'all 0.3s ease';
+            element.style.borderColor = '#E2852E';
+            element.style.boxShadow = '0 0 20px rgba(226, 133, 46, 0.5)';
+            
+            setTimeout(function() {
+                element.style.borderColor = '';
+                element.style.boxShadow = '';
+            }, 2000);
+        }
+    }, 300);
 }
 
 function scrollToArticlesList() {
-    const articlesList = document.querySelector('.articles-list');
-    if (articlesList) {
-        const offset = 80;
-        const elementPosition = articlesList.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
-        
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-        });
-        
-        articlesList.style.transition = 'all 0.3s ease';
-        articlesList.style.backgroundColor = 'rgba(226, 133, 46, 0.1)';
-        
-        setTimeout(() => {
-            articlesList.style.backgroundColor = '';
-        }, 1000);
-    }
+    setTimeout(function() {
+        const articlesList = document.querySelector('.articles-list');
+        if (articlesList) {
+            const offset = 80;
+            const elementPosition = articlesList.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+            
+            articlesList.style.transition = 'all 0.3s ease';
+            articlesList.style.backgroundColor = 'rgba(226, 133, 46, 0.1)';
+            
+            setTimeout(function() {
+                articlesList.style.backgroundColor = '';
+            }, 1000);
+        }
+    }, 300);
 }
