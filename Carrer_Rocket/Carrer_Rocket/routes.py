@@ -68,6 +68,6 @@ def add_news():
             title='Актуальные новинки',
             year=datetime.now().year,
             news_list=newsform.get_sorted_news(),
-            error=f'Произошла ошибка: {e}',
+            error='',
             form_data={}
         )
