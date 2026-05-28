@@ -1,5 +1,7 @@
 % rebase('layout.tpl', title='Статьи', year=2026)
 
+<meta charset="utf-8">
+
 <link rel="stylesheet" href="/static/content/articles.css">
 <script src="/static/scripts/article_modal.js"></script>
 
@@ -40,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     <div class="add-article-section">
         <h2>Добавить статью</h2>
-        <form action="/articles/add" method="POST" class="article-form" id="addArticleForm">
+        <form action="/articles/add" method="POST" class="article-form" id="addArticleForm" accept-charset="UTF-8">
             <div class="form-group">
                 <label for="header">Заголовок</label>
                 <input type="text" id="header" name="header" 
@@ -53,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             <div class="form-group">
                 <label for="description">Краткое описание</label>
-                <textarea id="description" name="description" rows="2"
+                <textarea id="description" name="description" rows="3"
                           placeholder="Краткое описание статьи" class="form-textarea">{{form_data.get('description', '')}}</textarea>
                 % if errors.get('description'):
                     <span class="error-message">{{errors['description']}}</span>
@@ -81,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             <div class="form-group">
                 <label for="text">Текст статьи</label>
-                <textarea id="text" name="text" rows="8"
+                <textarea id="text" name="text" rows="10"
                           placeholder="Текст статьи" class="form-textarea">{{form_data.get('text', '')}}</textarea>
                 % if errors.get('text'):
                     <span class="error-message">{{errors['text']}}</span>
@@ -114,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <p class="article-description">{{article.description}}</p>
                         <div class="article-divider"></div>
                         <div class="article-text">
-                            <p>{{article.text[:300]}}...</p>
+                            <p>{{article.text[:350]}}...</p>
                         </div>
                         <button class="btn-read-more" onclick="openModal('{{!article.header}}', '{{!article.author}}', '{{article.postDate}}', `{{!article.text.replace('`', '\\`').replace('$', '\\$')}}`)">Читать полностью</button>
                     </div>
