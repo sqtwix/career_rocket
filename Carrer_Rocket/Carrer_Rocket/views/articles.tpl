@@ -3,6 +3,21 @@
 <link rel="stylesheet" href="/static/content/articles.css">
 <script src="/static/scripts/article_modal.js"></script>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const scrollTo = '{{scroll_to}}';
+    if (scrollTo) {
+        setTimeout(function() {
+            if (scrollTo === 'articles_list') {
+                scrollToArticlesList();
+            } else {
+                scrollToArticle(scrollTo);
+            }
+        }, 100);
+    }
+});
+</script>
+
 <div class="page-header">
     <h1>Статьи и публикации</h1>
     <p>Полезные материалы о карьере в IT</p>
@@ -27,7 +42,7 @@
     
     <div class="add-article-section">
         <h2>Добавить статью</h2>
-        <form action="/articles/add" method="POST" class="article-form">
+        <form action="/articles/add" method="POST" class="article-form" id="addArticleForm">
             <div class="form-group">
                 <label for="header">Заголовок</label>
                 <input type="text" id="header" name="header" 
@@ -79,7 +94,7 @@
         </form>
     </div>
     
-    <div class="articles-list">
+    <div class="articles-list" id="articles-list">
         <h2>Все статьи <span class="articles-count">({{len(articles)}})</span></h2>
         
         % if not articles:
@@ -88,8 +103,8 @@
                 <p>Будьте первым кто опубликует статью</p>
             </div>
         % else:
-            % for article in articles:
-                <div class="article-card">
+            % for idx, article in enumerate(articles):
+                <div class="article-card" id="article_{{idx}}">
                     <div class="article-card-header">
                         <h3 class="article-title">{{article.header}}</h3>
                         <div class="article-meta">
