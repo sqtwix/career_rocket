@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     value="{{form_data.get('authorMail','')}}"
                     placeholder="Адрес почты" class="form-input">
                 % if errors.get('authorMail'):
-                    <span class="error-message"> {{errors['author']}} </span>
+                    <span class="error-message"> {{errors['authorMail']}} </span>
                 %end
             </div>
             

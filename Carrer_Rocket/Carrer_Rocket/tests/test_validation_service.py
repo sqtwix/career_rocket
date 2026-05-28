@@ -146,6 +146,110 @@ class TestValidationService(unittest.TestCase):
         errors = ValidationService.validate_article_form(self.valid_form_data)
         self.assertEqual(len(errors), 0)
 
+    def test_email_maximum_length_local_part(self):
+        result = ValidationService.check_mail('a' * 32 + '@gmail.com')
+        self.assertTrue(result)
+    
+    def test_empty_email_returns_false(self):
+        result = ValidationService.check_mail('')
+        self.assertFalse(result)
+    
+    def test_email_without_at_symbol(self):
+        result = ValidationService.check_mail('usermail.ru')
+        self.assertFalse(result)
+    
+    def test_email_without_domain(self):
+        result = ValidationService.check_mail('user@')
+        self.assertFalse(result)
+    
+    def test_email_without_local_part(self):
+        result = ValidationService.check_mail('@gmail.com')
+        self.assertFalse(result)
+    
+    def test_invalid_domain_provider(self):
+        result = ValidationService.check_mail('user@hotmail.com')
+        self.assertFalse(result)
+    
+    def test_invalid_tld_for_provider(self):
+        result = ValidationService.check_mail('user@yandex.com')
+        self.assertFalse(result)
+    
+    def test_invalid_tld_for_gmail(self):
+        result = ValidationService.check_mail('user@gmail.ru')
+        self.assertFalse(result)
+    
+    def test_invalid_tld_for_yahoo(self):
+        result = ValidationService.check_mail('user@yahoo.ru')
+        self.assertFalse(result)
+    
+    def test_email_with_special_characters(self):
+        result = ValidationService.check_mail('user!@gmail.com')
+        self.assertFalse(result)
+    
+    def test_email_with_spaces(self):
+        result = ValidationService.check_mail('user name@gmail.com')
+        self.assertFalse(result)
+    
+    def test_email_too_short_local_part(self):
+        result = ValidationService.check_mail('a@yandex.ru')
+        self.assertFalse(result)
+    
+    def test_email_too_long_local_part(self):
+        result = ValidationService.check_mail('a' * 35 + '@gmail.com')
+        self.assertFalse(result)
+    
+    def test_email_with_two_ats(self):
+        result = ValidationService.check_mail('user@name@gmail.com')
+        self.assertFalse(result)
+    
+    def test_email_with_subdomain(self):
+        result = ValidationService.check_mail('user@mail.yandex.ru')
+        self.assertTrue(result)
+    
+    def test_email_uppercase_letters(self):
+        result = ValidationService.check_mail('USERNAME@GMAIL.COM')
+        self.assertTrue(result)
+    
+    def test_email_mixed_case(self):
+        result = ValidationService.check_mail('UserName@YaNdEx.Ru')
+        self.assertTrue(result)
+
+    def test_valid_yandex_ru_email(self):
+        result = ValidationService.check_mail('username@yandex.ru')
+        self.assertTrue(result)
+    
+    def test_valid_gmail_com_email(self):
+        result = ValidationService.check_mail('testuser@gmail.com')
+        self.assertTrue(result)
+    
+    def test_valid_mail_ru_email(self):
+        result = ValidationService.check_mail('contact@mail.ru')
+        self.assertTrue(result)
+    
+    def test_valid_mail_com_email(self):
+        result = ValidationService.check_mail('info@mail.com')
+        self.assertTrue(result)
+    
+    def test_valid_yahoo_com_email(self):
+        result = ValidationService.check_mail('user@yahoo.com')
+        self.assertTrue(result)
+    
+    def test_email_with_numbers(self):
+        result = ValidationService.check_mail('user12345@yandex.ru')
+        self.assertTrue(result)
+    
+    def test_email_with_dots_in_local_part(self):
+        result = ValidationService.check_mail('user.name@gmail.com')
+        self.assertTrue(result)
+    
+    def test_email_with_underscore(self):
+        result = ValidationService.check_mail('user_name@mail.ru')
+        self.assertTrue(result)
+    
+    def test_email_minimum_length_local_part(self):
+        result = ValidationService.check_mail('ab@yandex.ru')
+        self.assertTrue(result)
+
 
 if __name__ == '__main__':
     unittest.main()
